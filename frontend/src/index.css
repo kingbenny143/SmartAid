@@ -635,7 +635,7 @@ a {
 }
 
 .page-wrap--assistant {
-  padding: 20px 0 48px;
+  padding: 12px 0 24px;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -648,13 +648,13 @@ a {
   }
 
   .page-wrap--assistant {
-    padding: 24px 0 56px;
+    padding: 16px 0 28px;
   }
 }
 
 @media (min-width: 1024px) {
   .page-wrap--assistant {
-    padding: 32px 0 64px;
+    padding: 18px 0 32px;
   }
 }
 
@@ -3476,6 +3476,134 @@ kbd {
 }
 
 /* ============ Assistant Chat Enhanced Styles ============ */
+.chat-bubble-user {
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%) !important;
+  color: #ffffff !important;
+  border-radius: 18px 18px 4px 18px !important;
+  box-shadow: 0 4px 12px -2px rgba(13, 148, 136, 0.35) !important;
+}
+
+.chat-bubble-user,
+.chat-bubble-user * {
+  color: #ffffff !important;
+}
+
+.chat-bubble-user p {
+  color: #ffffff !important;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  font-size: 14.5px !important;
+}
+
+.chat-bubble-assistant {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05);
+}
+
+.chat-bubble-assistant p {
+  color: #334155;
+  line-height: 1.65;
+  font-size: 14.5px;
+  margin: 6px 0;
+}
+
+.chat-bubble-assistant h4 {
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+/* Interactive prompt pills in welcome message */
+.chat-prompt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #f0fdfa;
+  border: 1.5px solid #ccfbf1;
+  color: #0f766e;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  box-shadow: 0 1px 2px rgba(13, 148, 136, 0.06);
+  text-align: left;
+}
+
+.chat-prompt-pill:hover {
+  background: #ccfbf1;
+  border-color: #0d9488;
+  color: #115e59;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(13, 148, 136, 0.18);
+}
+
+.chat-prompt-pill-arrow {
+  transition: transform 0.15s ease;
+}
+
+.chat-prompt-pill:hover .chat-prompt-pill-arrow {
+  transform: translateX(2px);
+}
+
+/* Suggested follow-up pills */
+.chat-suggested-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1.5px solid #ccfbf1;
+  color: #0f766e;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.chat-suggested-pill:hover {
+  background: #f0fdfa;
+  border-color: #0d9488;
+  color: #0d9488;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(13, 148, 136, 0.2);
+}
+
+/* Starter topic pills */
+.chat-starter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.chat-starter-pill:hover {
+  background: #f8fafc;
+  border-color: #0d9488;
+  color: #0f766e;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+/* Composer box and textarea */
 .chat-composer-box {
   display: flex;
   align-items: flex-end;
@@ -3491,6 +3619,24 @@ kbd {
 .chat-composer-box:focus-within {
   border-color: #0d9488;
   box-shadow: 0 0 0 3.5px rgba(13, 148, 136, 0.15);
+}
+
+.chat-composer-textarea {
+  width: 100%;
+  font-size: 14.5px;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  border: 0;
+  background: transparent;
+  color: #1e293b;
+  min-height: 42px;
+  max-height: 120px;
+  padding: 4px 6px;
+}
+
+.chat-composer-textarea::placeholder {
+  color: #94a3b8;
 }
 
 .chat-send-btn {
@@ -3524,4 +3670,13 @@ kbd {
 
 .chat-send-btn.is-active:active {
   transform: translateY(1px);
+}
+
+/* Scrollbar hide utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

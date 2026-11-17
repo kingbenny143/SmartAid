@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import ChatMessage from '../components/ChatMessage.jsx'
-import Disclaimer from '../components/Disclaimer.jsx'
 import { sendChatMessage } from '../services/api.js'
 
 const STARTER_PROMPTS = [
-  { label: 'What should I do for a mild fever?', icon: '🌡️' },
-  { label: 'How do I treat a minor burn?', icon: '🔥' },
-  { label: 'Signs of dehydration & fluid intake', icon: '💧' },
-  { label: 'How do I perform hands-only CPR?', icon: '❤️' },
-  { label: 'Everyday preventive wellness habits', icon: '🌿' },
-  { label: 'When to seek emergency medical care', icon: '🚨' },
+  { label: 'Mild Fever Care', query: 'What should I do for a mild fever?', icon: '🌡️' },
+  { label: 'Minor Burn Relief', query: 'How do I treat a minor burn?', icon: '🔥' },
+  { label: 'Dehydration Signs', query: 'Signs of dehydration & fluid intake advice', icon: '💧' },
+  { label: 'Hands-Only CPR', query: 'How do I perform hands-only CPR step by step?', icon: '❤️' },
+  { label: 'Daily Wellness', query: 'What are everyday preventive wellness habits?', icon: '🌿' },
+  { label: 'Emergency Warning Signs', query: 'When should I seek emergency medical care immediately?', icon: '🚨' },
 ]
 
 const initialWelcome = {
@@ -18,10 +17,10 @@ const initialWelcome = {
     "### Welcome to Smart Aid Assistant 👋\n\n" +
     "I am your AI health awareness and preventive guidance companion. I can share evidence-informed educational tips on common symptoms, first-aid procedures, hydration, and healthy habits.\n\n" +
     "**You can ask me things like:**\n" +
-    "- **\"How do I treat a sprained ankle?\"**\n" +
-    "- **\"What temperature is dangerous for a fever?\"**\n" +
-    "- **\"What are signs of heat exhaustion vs heatstroke?\"**\n" +
-    "- **\"How do I perform hands-only CPR?\"**\n\n" +
+    "- \"How do I treat a sprained ankle?\"\n" +
+    "- \"What temperature is dangerous for a fever?\"\n" +
+    "- \"What are signs of heat exhaustion vs heatstroke?\"\n" +
+    "- \"How do I perform hands-only CPR?\"\n\n" +
     "What would you like to explore today?",
   disclaimer:
     'Smart Aid provides informational health guidance and first-aid education. It does not provide a medical diagnosis or replace a qualified healthcare professional. Seek professional medical care when appropriate.',
@@ -109,22 +108,25 @@ const Assistant = () => {
 
   return (
     <div className="page-wrap page-wrap--assistant min-w-0 max-w-5xl mx-auto px-3 sm:px-6">
-      <header className="page-header fade-in min-w-0 mb-4 sm:mb-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <header className="page-header fade-in min-w-0 mb-3 sm:mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <div>
-            <span className="page-eyebrow mb-2">AI Health Assistant</span>
-            <h1 className="page-title text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Smart Aid Assistant</h1>
-            <p className="text-[14px] sm:text-[15px] leading-relaxed text-slate-600 max-w-xl">
-              Ask questions about common symptoms, first-aid procedures, triage warning signs, and preventive habits.
-            </p>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="page-eyebrow !mb-0">Interactive Companion</span>
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10.5px] font-bold border border-emerald-200/80">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+                ONLINE
+              </span>
+            </div>
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Smart Aid Assistant</h1>
           </div>
           {hasUserMessage && (
             <button
               type="button"
               onClick={handleClear}
-              className="self-start sm:self-auto btn btn-secondary btn-sm text-xs font-semibold text-slate-600 hover:text-slate-900"
+              className="self-start sm:self-auto btn btn-secondary btn-sm text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-xl"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="1 4 1 10 7 10" />
                 <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
               </svg>
@@ -135,41 +137,38 @@ const Assistant = () => {
       </header>
 
       <div className="chat-page fade-in min-w-0">
-        <div className="chat-container border border-slate-200/90 shadow-xl bg-white flex flex-col rounded-3xl h-[calc(100vh-210px)] min-h-[580px] max-h-[820px] overflow-hidden">
-          {/* Header */}
-          <div className="chat-shell-header px-4 sm:px-6 py-3.5 sm:py-4 bg-gradient-to-r from-slate-50 via-white to-teal-50/30 border-b border-slate-100 flex items-center justify-between gap-3 shrink-0">
+        <div className="chat-container border border-slate-200/90 shadow-xl bg-white flex flex-col rounded-3xl h-[calc(100vh-175px)] min-h-[520px] max-h-[820px] overflow-hidden">
+          {/* Shell Header */}
+          <div className="chat-shell-header px-4 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-slate-50 via-white to-teal-50/20 border-b border-slate-100 flex items-center justify-between gap-3 shrink-0">
             <div className="flex items-center gap-3 min-w-0">
               <div className="relative shrink-0">
                 <div
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center shadow-md ring-4 ring-teal-50"
-                  style={{ boxShadow: '0 1px 2px rgba(15,118,110,0.18), 0 4px 10px -2px rgba(13,148,136,0.30)' }}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center shadow-sm ring-2 ring-teal-50"
+                  style={{ boxShadow: '0 1px 2px rgba(15,118,110,0.18), 0 3px 8px -2px rgba(13,148,136,0.30)' }}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
                     <path d="M15.5 7h-1a1 1 0 0 0-1 1v.5a1 1 0 0 1-1 1 1 1 0 0 1 1 1V11a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-.5a1 1 0 0 1 1-1 1 1 0 0 1-1-1V8a1 1 0 0 0-1-1Z" />
                   </svg>
                 </div>
-                <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white" aria-hidden="true" />
+                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="text-[14.5px] sm:text-[15px] font-bold text-slate-900 tracking-tight truncate flex items-center gap-2">
+                <div className="text-[14px] sm:text-[14.5px] font-bold text-slate-900 tracking-tight truncate flex items-center gap-2">
                   Smart Aid Assistant
-                  <span className="hidden xs:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100 font-semibold text-[10px] tracking-wider uppercase">
-                    AI Model v1.0
+                  <span className="hidden xs:inline-flex items-center px-1.5 py-0.2 rounded-full bg-teal-50 text-teal-700 border border-teal-100 font-semibold text-[9.5px]">
+                    Health AI
                   </span>
                 </div>
-                <div className="text-[12px] text-slate-500 flex items-center gap-1.5 flex-wrap">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden />
-                  <span className="truncate">Health Guidance &amp; First Aid</span>
-                  <span className="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 font-semibold text-[9.5px]">
-                    ONLINE
-                  </span>
+                <div className="text-[11.5px] text-slate-500 flex items-center gap-1.5 flex-wrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
+                  <span className="truncate">First-aid guidance &amp; symptom awareness</span>
                 </div>
               </div>
             </div>
 
             <div className="flex items-center gap-2 shrink-0">
-              <span className="text-xs text-slate-400 hidden md:inline">24/7 Educational</span>
+              <span className="text-xs text-slate-400 hidden sm:inline">24/7 Educational Guidance</span>
             </div>
           </div>
 
@@ -187,18 +186,19 @@ const Assistant = () => {
                   content={m.content}
                   disclaimer={m.disclaimer}
                   riskLevel={m.riskLevel}
+                  onPromptClick={handlePromptClick}
                 />
               </div>
             ))}
 
             {thinking && (
-              <div className="flex gap-2.5 sm:gap-3 justify-start w-full min-w-0 pt-2">
-                <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center shadow-sm ring-2 ring-white mt-0.5">
+              <div className="flex gap-2.5 sm:gap-3 justify-start items-center w-full min-w-0 pt-2">
+                <div className="shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center shadow-xs ring-2 ring-white">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
                   </svg>
                 </div>
-                <div className="bg-white border border-slate-200/80 shadow-sm rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-2 text-slate-500 text-sm">
+                <div className="bg-white border border-slate-200/80 shadow-xs rounded-2xl rounded-tl-sm px-4 py-2.5 flex items-center gap-2 text-slate-500 text-sm">
                   <span className="w-2 h-2 rounded-full bg-teal-500 animate-bounce" style={{ animationDelay: '-0.32s' }} />
                   <span className="w-2 h-2 rounded-full bg-teal-500 animate-bounce" style={{ animationDelay: '-0.16s' }} />
                   <span className="w-2 h-2 rounded-full bg-teal-500 animate-bounce" />
@@ -208,22 +208,25 @@ const Assistant = () => {
             )}
           </div>
 
-          {/* Contextual Suggested Prompts */}
+          {/* Suggested Follow-ups */}
           {activeSuggestedPrompts.length > 0 && !thinking && (
-            <div className="px-4 sm:px-6 py-2.5 bg-slate-50/70 border-t border-slate-100 flex items-center gap-2 overflow-x-auto scrollbar-thin shrink-0">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0">
-                Suggested:
-              </span>
-              <div className="flex items-center gap-2 flex-nowrap">
+            <div className="px-4 sm:px-6 py-2 bg-gradient-to-r from-teal-50/40 via-white to-slate-50 border-t border-slate-100 flex items-center gap-2.5 shrink-0">
+              <div className="flex items-center gap-1.5 text-teal-700 font-semibold text-[11px] uppercase tracking-wider shrink-0 select-none">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal-600" aria-hidden="true">
+                  <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+                </svg>
+                <span className="hidden xs:inline">Suggested</span>
+              </div>
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
                 {activeSuggestedPrompts.map((p, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => handlePromptClick(p)}
-                    className="chat-suggested-pill"
+                    className="chat-suggested-pill group"
                   >
                     <span>{p}</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0 text-teal-500 group-hover:text-teal-700 group-hover:translate-x-0.5 transition-all">
                       <line x1="5" y1="12" x2="19" y2="12" />
                       <polyline points="12 5 19 12 12 19" />
                     </svg>
@@ -233,35 +236,30 @@ const Assistant = () => {
             </div>
           )}
 
-          {/* Quick Starters if no user messages yet */}
+          {/* Starter Topics */}
           {!hasUserMessage && !thinking && (
-            <div className="chat-shell-starters px-4 sm:px-6 py-3 border-t border-slate-100 bg-white shrink-0">
-              <span className="chat-shell-starters-label text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2 block">
-                Common Topics
+            <div className="px-4 sm:px-6 py-2 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2.5 shrink-0">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0 select-none">
+                Topics:
               </span>
-              <div className="chat-starter-list flex flex-wrap gap-2">
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
                 {STARTER_PROMPTS.map((p) => (
                   <button
                     key={p.label}
                     type="button"
-                    onClick={() => handlePromptClick(p.label)}
-                    className="chat-pill-btn"
+                    onClick={() => handlePromptClick(p.query)}
+                    className="chat-starter-pill"
                   >
-                    <span aria-hidden="true" className="shrink-0 text-base">{p.icon}</span>
-                    <span className="truncate">{p.label}</span>
+                    <span aria-hidden="true" className="shrink-0 text-sm">{p.icon}</span>
+                    <span>{p.label}</span>
                   </button>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Subtle Disclaimer */}
-          <div className="chat-disclaimer px-4 sm:px-6 py-1.5 bg-slate-50/50 border-t border-slate-100 shrink-0">
-            <Disclaimer tone="subtle" />
-          </div>
-
-          {/* Message Composer */}
-          <form onSubmit={submit} className="chat-shell-composer p-3 sm:p-4 bg-white border-t border-slate-200 shrink-0">
+          {/* Composer */}
+          <form onSubmit={submit} className="chat-shell-composer px-3 sm:px-5 py-3 bg-white border-t border-slate-200/80 shrink-0">
             <div className="chat-composer-box">
               <textarea
                 ref={textareaRef}
@@ -269,7 +267,7 @@ const Assistant = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about symptoms, burns, fever, first aid, or preventive habits..."
                 rows={1}
-                className="w-full text-[14.5px] leading-relaxed resize-none outline-none border-0 bg-transparent text-slate-800 placeholder:text-slate-400 min-h-[42px] max-h-[120px] p-1"
+                className="chat-composer-textarea"
                 aria-label="Message to Smart Aid Assistant"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {
@@ -291,13 +289,15 @@ const Assistant = () => {
                 </svg>
               </button>
             </div>
-            <div className="chat-shell-composer-hint mt-2 text-[11px] text-slate-400 flex items-center justify-between">
-              <div>
-                Press <kbd>Enter</kbd> to send <span className="dot-sep">·</span> <kbd>Shift</kbd>+<kbd>Enter</kbd> for newline
+
+            <div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px] text-slate-400">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span>Press <kbd>Enter</kbd> to send <span className="dot-sep">·</span> <kbd>Shift</kbd>+<kbd>Enter</kbd> for newline</span>
               </div>
-              <span className="hidden sm:inline text-teal-700 font-medium text-[11px]">
-                Powered by Smart Aid Health Intelligence
-              </span>
+              <div className="flex items-center gap-1 text-slate-500 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" aria-hidden="true" />
+                <span>Informational guidance only · Dial 911 / 112 for emergencies</span>
+              </div>
             </div>
           </form>
         </div>
