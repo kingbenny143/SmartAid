@@ -117,8 +117,8 @@ const FirstAid = () => {
       </header>
 
       {/* Search & Category Filter Controls */}
-      <div className="mb-8 space-y-4 min-w-0">
-        <div className="search-input-wrap">
+      <div className="mb-8 min-w-0">
+        <div className="search-input-wrap mb-4">
           <svg
             className="search-icon"
             viewBox="0 0 24 24"
@@ -154,7 +154,7 @@ const FirstAid = () => {
 
         {/* Categories Bar */}
         {categories.length > 1 && (
-          <div className="filter-chips-bar flex flex-wrap items-center gap-2">
+          <div className="filter-chips-bar flex flex-wrap items-center gap-2.5 sm:gap-3 my-4">
             {categories.map((cat) => {
               const active = selectedCategory === cat
               return (
@@ -206,7 +206,7 @@ const FirstAid = () => {
       {!loading && !error && (
         <>
           {filtered.length > 0 ? (
-            <div className="grid-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mt-6 sm:mt-8">
               {filtered.map((g) => (
                 <FirstAidCard key={g.id} guide={g} onOpen={openTopic} />
               ))}

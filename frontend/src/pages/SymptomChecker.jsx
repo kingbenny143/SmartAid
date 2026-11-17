@@ -183,8 +183,8 @@ const SymptomChecker = () => {
           )}
 
           {/* Search & Category Filter Controls */}
-          <div className="mb-6 space-y-3">
-            <div className="search-input-wrap">
+          <div className="mb-8 space-y-4">
+            <div className="search-input-wrap mb-4">
               <svg
                 className="search-icon"
                 viewBox="0 0 24 24"
@@ -218,7 +218,7 @@ const SymptomChecker = () => {
             </div>
 
             {/* Category Filter Chips */}
-            <div className="filter-chips-bar flex flex-wrap items-center gap-2">
+            <div className="filter-chips-bar flex flex-wrap items-center gap-2.5 sm:gap-3 my-4">
               {categories.map((cat) => {
                 const active = selectedCategory === cat
                 return (
@@ -237,7 +237,7 @@ const SymptomChecker = () => {
 
           {/* Grid of Symptoms */}
           {filteredSymptoms.length > 0 ? (
-            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-fr items-stretch">
+            <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-fr items-stretch mt-6 sm:mt-7">
               {filteredSymptoms.map((s) => (
                 <div key={s.id} className="min-w-0 flex flex-col min-h-full">
                   <SymptomCard
@@ -266,15 +266,15 @@ const SymptomChecker = () => {
         </section>
 
         {/* Step 2 — Duration */}
-        <section id="step-duration" className="sc-step min-w-0 mb-8 sm:mb-9">
+        <section id="step-duration" className="sc-step min-w-0 mt-12 sm:mt-16 mb-12 sm:mb-16">
           <StepHeader
             num="02"
             title="Duration"
             subtitle="How long have you been experiencing these symptoms?"
           />
-          <fieldset className="min-w-0">
+          <fieldset className="min-w-0 mt-4 sm:mt-5">
             <legend className="sr-only">Duration of symptoms</legend>
-            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-flow-row auto-rows-fr items-stretch">
+            <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-flow-row auto-rows-fr items-stretch">
               {DURATION_OPTIONS.map((opt) => {
                 const isSel = duration === opt.value
                 return (
@@ -304,15 +304,15 @@ const SymptomChecker = () => {
         </section>
 
         {/* Step 3 — Severity */}
-        <section id="step-severity" className="sc-step min-w-0 mb-8 sm:mb-9">
+        <section id="step-severity" className="sc-step min-w-0 mt-14 sm:mt-18 mb-12 sm:mb-16">
           <StepHeader
             num="03"
             title="Perceived Severity"
             subtitle="How much do these symptoms disrupt your everyday function?"
           />
-          <fieldset className="min-w-0">
+          <fieldset className="min-w-0 mt-4 sm:mt-5">
             <legend className="sr-only">Symptom Severity</legend>
-            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-flow-row auto-rows-fr items-stretch">
+            <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-flow-row auto-rows-fr items-stretch">
               {SEVERITY_OPTIONS.map((opt) => {
                 const isSel = severity === opt.value
                 return (
@@ -351,12 +351,12 @@ const SymptomChecker = () => {
         </section>
 
         {/* Disclaimer */}
-        <section className="sc-disclaimer min-w-0 mb-8">
+        <section className="sc-disclaimer min-w-0 mt-10 sm:mt-14 mb-10 sm:mb-12">
           <Disclaimer tone="amber" />
         </section>
 
         {/* Submit */}
-        <section className="sc-submit min-w-0 flex flex-col items-center justify-center pb-12 sm:pb-16 gap-3">
+        <section className="sc-submit min-w-0 flex flex-col items-center justify-center pt-8 sm:pt-10 pb-16 sm:pb-20 gap-4">
           <button
             type="submit"
             disabled={!canSubmit}

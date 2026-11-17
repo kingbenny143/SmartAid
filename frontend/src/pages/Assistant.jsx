@@ -211,20 +211,20 @@ const Assistant = () => {
 
           {/* Suggested Follow-ups (shown during active conversation) */}
           {hasUserMessage && activeSuggestedPrompts.length > 0 && !thinking && (
-            <div className="px-4 sm:px-6 py-2.5 bg-gradient-to-r from-teal-50/40 via-white to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2.5 shrink-0">
+            <div className="px-4 sm:px-6 py-2.5 bg-gradient-to-r from-teal-50/40 via-white to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3 shrink-0 overflow-hidden">
               <div className="flex items-center gap-1.5 text-teal-700 dark:text-teal-400 font-semibold text-[11px] uppercase tracking-wider shrink-0 select-none">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal-600" aria-hidden="true">
                   <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
                 </svg>
                 <span className="hidden xs:inline">Suggested</span>
               </div>
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+              <div className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1 pr-6 flex-1 min-w-0">
                 {activeSuggestedPrompts.map((p, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => handlePromptClick(p)}
-                    className="chat-suggested-pill group"
+                    className="chat-suggested-pill shrink-0 group"
                   >
                     <span>{p}</span>
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0 text-teal-500 group-hover:text-teal-700 group-hover:translate-x-0.5 transition-all">
@@ -233,28 +233,30 @@ const Assistant = () => {
                     </svg>
                   </button>
                 ))}
+                <div className="w-6 shrink-0" aria-hidden="true" />
               </div>
             </div>
           )}
 
           {/* Starter Topics */}
           {!hasUserMessage && !thinking && (
-            <div className="px-4 sm:px-6 py-2.5 bg-slate-50/80 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2.5 shrink-0">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0 select-none">
+            <div className="px-4 sm:px-6 py-2.5 bg-slate-50/80 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3 shrink-0 overflow-hidden">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-400 shrink-0 select-none">
                 Topics:
               </span>
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+              <div className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1 pr-6 flex-1 min-w-0">
                 {STARTER_PROMPTS.map((p) => (
                   <button
                     key={p.label}
                     type="button"
                     onClick={() => handlePromptClick(p.query)}
-                    className="chat-starter-pill"
+                    className="chat-starter-pill shrink-0"
                   >
                     <span aria-hidden="true" className="shrink-0 text-sm">{p.icon}</span>
                     <span>{p.label}</span>
                   </button>
                 ))}
+                <div className="w-6 shrink-0" aria-hidden="true" />
               </div>
             </div>
           )}
