@@ -48,3 +48,8 @@ frontend/node_modules/
 dist/
 frontend/dist/
 *.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3

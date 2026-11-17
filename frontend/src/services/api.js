@@ -96,3 +96,30 @@ export async function sendChatMessage({ message, history = [] }) {
     }),
   })
 }
+
+export async function getAssessmentHistory(limit = 20, offset = 0) {
+  return request(`/api/assessments/history?limit=${limit}&offset=${offset}`)
+}
+
+export async function getAssessmentById(id) {
+  return request(`/api/assessments/${encodeURIComponent(id)}`)
+}
+
+export async function submitFeedback({ target_type, rating, target_id, comment }) {
+  return request('/api/assessments/feedback', {
+    method: 'POST',
+    body: JSON.stringify({ target_type, rating, target_id, comment }),
+  })
+}
+
+export async function getEmergencyContacts() {
+  return request('/api/emergency/contacts')
+}
+
+export async function getDailyWellnessTip() {
+  return request('/api/wellness/daily-tip')
+}
+
+export async function getWellnessTips() {
+  return request('/api/wellness/tips')
+}

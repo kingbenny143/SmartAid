@@ -36,6 +36,14 @@ class SymptomAssessmentRequest(BaseModel):
 
 
 class SymptomAssessmentResponse(BaseModel):
+    id: Optional[str] = Field(
+        default=None,
+        description="Unique identifier for the persisted assessment record."
+    )
+    created_at: Optional[str] = Field(
+        default=None,
+        description="ISO timestamp of when the assessment was conducted."
+    )
     risk_level: Literal["low", "moderate", "high"]
     possible_categories: List[str] = Field(
         description="Educational categories the symptoms may be associated with."
