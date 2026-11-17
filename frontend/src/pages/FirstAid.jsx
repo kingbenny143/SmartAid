@@ -4,12 +4,6 @@ import LoadingSpinner from '../components/LoadingSpinner.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import { getFirstAidGuides, getFirstAidGuideById } from '../services/api.js'
 
-const StepIcon = ({ num }) => (
-  <div className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center font-black text-xs sm:text-sm tracking-tighter shadow-md shadow-teal-600/20 ring-4 ring-teal-50">
-    {String(num).padStart(2, '0')}
-  </div>
-)
-
 const FirstAid = () => {
   const [topics, setTopics] = useState([])
   const [categories, setCategories] = useState(['All'])
@@ -240,33 +234,27 @@ const FirstAid = () => {
       {/* Detail Modal */}
       {active && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+          className="fa-modal-backdrop"
           onClick={() => setActive(null)}
           role="dialog"
           aria-modal="true"
           aria-labelledby="fa-modal-title"
         >
-          {/* Backdrop */}
+          {/* Modal Container */}
           <div
-            className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
-            aria-hidden="true"
-          />
-
-          {/* Modal Card */}
-          <div
-            className="relative z-10 bg-white w-full max-w-2xl max-h-[92dvh] sm:rounded-3xl rounded-t-[28px] shadow-2xl overflow-hidden flex flex-col"
+            className="fa-modal-container"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Pinned Header */}
-            <div className="shrink-0 bg-gradient-to-br from-white via-white to-slate-50/60 border-b border-slate-100 px-5 sm:px-8 py-4 sm:py-6 flex items-start justify-between gap-3">
+            <div className="fa-modal-head">
               <div className="flex-1 min-w-0 pr-2">
                 <div className="flex items-center gap-2 flex-wrap mb-2">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-700 text-[10.5px] font-bold uppercase tracking-widest border border-teal-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500" aria-hidden="true" />
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-800 text-[11px] font-bold uppercase tracking-wider border border-teal-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-600" aria-hidden="true" />
                     {active.category || 'First-Aid Guide'}
                   </span>
                   {isEmergencyGuide && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[10.5px] font-bold uppercase tracking-widest border border-rose-200">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 text-rose-800 text-[11px] font-bold uppercase tracking-wider border border-rose-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-rose-600 animate-pulse" aria-hidden="true" />
                       Emergency Action
                     </span>
@@ -274,12 +262,12 @@ const FirstAid = () => {
                 </div>
                 <h2
                   id="fa-modal-title"
-                  className="text-xl sm:text-[26px] font-bold tracking-tight text-slate-900 leading-snug break-words"
+                  className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 leading-tight break-words"
                 >
                   {active.title}
                 </h2>
                 {active.description && (
-                  <p className="text-[13.5px] sm:text-[14.5px] text-slate-600 mt-1.5 leading-relaxed">
+                  <p className="text-[14px] sm:text-[15px] text-slate-600 mt-2 leading-relaxed">
                     {active.description}
                   </p>
                 )}
@@ -288,7 +276,7 @@ const FirstAid = () => {
                 ref={closeBtnRef}
                 type="button"
                 onClick={() => setActive(null)}
-                className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-2xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 active:scale-95 flex items-center justify-center transition border border-slate-200"
+                className="fa-modal-close-btn"
                 aria-label="Close guide"
               >
                 ✕
@@ -296,7 +284,7 @@ const FirstAid = () => {
             </div>
 
             {/* Scrollable Body */}
-            <div className="flex-1 overflow-y-auto overscroll-contain px-5 sm:px-8 py-5 sm:py-7">
+            <div className="fa-modal-content">
               {activeLoading ? (
                 <div className="py-12">
                   <LoadingSpinner label="Loading guide details..." />
@@ -305,29 +293,30 @@ const FirstAid = () => {
                 <div className="space-y-6">
                   {/* Warning banner */}
                   {active.warning && (
-                    <section className="rounded-2xl p-4 sm:p-5 bg-gradient-to-br from-rose-50 via-rose-50/80 to-amber-50/50 border border-rose-200 shadow-2xs">
+                    <section className="fa-warning-card">
                       <div className="flex items-center gap-2.5 mb-2">
-                        <div className="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center border border-rose-200 shrink-0">
+                        <div className="w-8 h-8 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center border border-rose-300 shrink-0">
                           <svg
-                            width="16"
-                            height="16"
+                            width="18"
+                            height="18"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            strokeWidth="2.3"
+                            strokeWidth="2.4"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            aria-hidden="true"
                           >
                             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
                             <line x1="12" y1="9" x2="12" y2="13" />
                             <line x1="12" y1="17" x2="12.01" y2="17" />
                           </svg>
                         </div>
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-rose-800">
+                        <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-rose-900">
                           Critical Safety Notice
                         </h3>
                       </div>
-                      <p className="text-[13.5px] sm:text-[14px] leading-relaxed text-rose-900 font-medium break-words">
+                      <p className="text-[14px] sm:text-[14.5px] leading-relaxed text-rose-950 font-medium break-words pl-0.5">
                         {active.warning}
                       </p>
                     </section>
@@ -336,18 +325,22 @@ const FirstAid = () => {
                   {/* Step by Step */}
                   {active.steps && active.steps.length > 0 ? (
                     <section>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-                        Action Steps
-                      </h3>
-                      <ol className="space-y-3">
+                      <div className="flex items-center justify-between gap-2 mb-3.5">
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                          Step-by-Step Action Guide
+                        </h3>
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                          {active.steps.length} {active.steps.length === 1 ? 'Step' : 'Steps'}
+                        </span>
+                      </div>
+                      <ol className="space-y-3.5">
                         {active.steps.map((s, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-100 hover:border-teal-100 transition"
-                          >
-                            <StepIcon num={i + 1} />
-                            <div className="flex-1 min-w-0 pt-0.5">
-                              <p className="text-[14px] sm:text-[14.5px] leading-relaxed text-slate-800 font-medium break-words">
+                          <li key={i} className="fa-step-item">
+                            <span className={'fa-step-num ' + (isEmergencyGuide ? 'is-emergency' : '')}>
+                              {String(i + 1).padStart(2, '0')}
+                            </span>
+                            <div className="flex-1 min-w-0 pt-1">
+                              <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-slate-800 font-medium break-words">
                                 {s}
                               </p>
                             </div>
@@ -361,11 +354,26 @@ const FirstAid = () => {
                     </p>
                   )}
 
-                  <section className="text-[12px] text-slate-400 leading-relaxed border-t border-slate-100 pt-4">
+                  <section className="text-[11.5px] sm:text-[12px] text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
                     {disclaimer || 'First-aid guidance is educational and does not substitute for certified clinical training. In case of life-threatening emergency, call 911 / 112 immediately.'}
                   </section>
                 </div>
               )}
+            </div>
+
+            {/* Pinned Footer */}
+            <div className="fa-modal-foot">
+              <span className="text-xs text-slate-500 hidden sm:inline flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-rose-500" aria-hidden="true" />
+                Emergency? Dial <strong>911 / 112</strong> immediately
+              </span>
+              <button
+                type="button"
+                onClick={() => setActive(null)}
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl font-semibold text-sm bg-slate-100 hover:bg-slate-200 text-slate-800 transition"
+              >
+                Close Guide
+              </button>
             </div>
           </div>
         </div>

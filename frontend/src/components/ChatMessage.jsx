@@ -185,10 +185,10 @@ const ChatMessage = ({ role, content, disclaimer, riskLevel }) => {
         className={
           'max-w-[88%] sm:max-w-[80%] md:max-w-[74%] rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 text-[14px] sm:text-[14.5px] leading-relaxed transition overflow-visible min-w-0 break-words ' +
           (isUser
-            ? 'bg-gradient-to-br from-teal-600 to-teal-700 text-white rounded-br-sm shadow-md shadow-teal-700/15'
+            ? 'bg-gradient-to-br from-teal-600 to-teal-700 text-white rounded-br-sm shadow-md shadow-teal-700/20'
             : isEmergency
-            ? 'bg-rose-50/70 border border-rose-200 text-slate-800 rounded-bl-sm shadow-sm'
-            : 'bg-white border border-slate-100 text-slate-800 rounded-bl-sm shadow-[0_1px_2px_rgba(15,23,42,0.04),0_2px_6px_-1px_rgba(15,23,42,0.04)]')
+            ? 'bg-rose-50/80 border border-rose-200 text-slate-800 rounded-bl-sm shadow-sm'
+            : 'bg-slate-50/80 border border-slate-200/80 text-slate-800 rounded-bl-sm shadow-xs')
         }
       >
         {!isUser && (

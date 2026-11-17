@@ -266,7 +266,7 @@ const SymptomChecker = () => {
         </section>
 
         {/* Step 2 — Duration */}
-        <section id="step-duration" className="sc-step min-w-0 mb-7 sm:mb-8">
+        <section id="step-duration" className="sc-step min-w-0 mb-8 sm:mb-9">
           <StepHeader
             num="02"
             title="Duration"
@@ -274,7 +274,7 @@ const SymptomChecker = () => {
           />
           <fieldset className="min-w-0">
             <legend className="sr-only">Duration of symptoms</legend>
-            <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-flow-row auto-rows-fr items-stretch">
+            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-flow-row auto-rows-fr items-stretch">
               {DURATION_OPTIONS.map((opt) => {
                 const isSel = duration === opt.value
                 return (
@@ -291,7 +291,7 @@ const SymptomChecker = () => {
                     />
                     <div className="w-full flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
-                        <div className="text-[14.5px] font-semibold text-slate-900 leading-tight">{opt.label}</div>
+                        <div className="text-[15px] font-bold text-slate-900 leading-tight">{opt.label}</div>
                         <div className="text-[12.5px] text-slate-500 mt-1">{opt.sub}</div>
                       </div>
                       <span className="sc-option-indicator shrink-0 mt-0.5" aria-hidden="true" />
@@ -304,7 +304,7 @@ const SymptomChecker = () => {
         </section>
 
         {/* Step 3 — Severity */}
-        <section id="step-severity" className="sc-step min-w-0 mb-7">
+        <section id="step-severity" className="sc-step min-w-0 mb-8 sm:mb-9">
           <StepHeader
             num="03"
             title="Perceived Severity"
@@ -312,13 +312,17 @@ const SymptomChecker = () => {
           />
           <fieldset className="min-w-0">
             <legend className="sr-only">Symptom Severity</legend>
-            <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-flow-row auto-rows-fr items-stretch">
+            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-flow-row auto-rows-fr items-stretch">
               {SEVERITY_OPTIONS.map((opt) => {
                 const isSel = severity === opt.value
                 return (
                   <label
                     key={opt.value}
-                    className={'sc-option-card flex h-full flex-col justify-start ' + (isSel ? 'is-selected' : '')}
+                    className={
+                      'sc-option-card flex h-full flex-col justify-start ' +
+                      `is-severity-${opt.value} ` +
+                      (isSel ? 'is-selected' : '')
+                    }
                   >
                     <input
                       type="radio"
@@ -327,14 +331,17 @@ const SymptomChecker = () => {
                       checked={isSel}
                       onChange={(e) => setSeverity(e.target.value)}
                     />
-                    <div className="w-full flex items-start gap-3">
-                      <span className="shrink-0 mt-0.5 flex items-center justify-center" aria-hidden="true">
-                        <span className={`w-4 h-4 rounded-full ${opt.dot} ring-4 ${opt.ring} transition-all ${isSel ? 'scale-110' : 'opacity-70 scale-90'}`} />
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[14.5px] font-bold text-slate-900 leading-tight">{opt.label}</div>
-                        <div className="text-[12.5px] text-slate-500 mt-1 leading-relaxed">{opt.desc}</div>
+                    <div className="w-full flex items-start justify-between gap-3">
+                      <div className="flex items-start gap-3 min-w-0 flex-1">
+                        <span className="shrink-0 mt-0.5 flex items-center justify-center" aria-hidden="true">
+                          <span className={`w-4 h-4 rounded-full ${opt.dot} ring-4 ${opt.ring} transition-all ${isSel ? 'scale-110' : 'opacity-70 scale-90'}`} />
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[15px] font-bold text-slate-900 leading-tight">{opt.label}</div>
+                          <div className="text-[12.5px] text-slate-600 mt-1 leading-relaxed">{opt.desc}</div>
+                        </div>
                       </div>
+                      <span className="sc-option-indicator shrink-0 mt-0.5" aria-hidden="true" />
                     </div>
                   </label>
                 )
@@ -344,7 +351,7 @@ const SymptomChecker = () => {
         </section>
 
         {/* Disclaimer */}
-        <section className="sc-disclaimer min-w-0 mb-6">
+        <section className="sc-disclaimer min-w-0 mb-8">
           <Disclaimer tone="amber" />
         </section>
 
@@ -353,16 +360,27 @@ const SymptomChecker = () => {
           <button
             type="submit"
             disabled={!canSubmit}
-            className="sc-analyze-btn shadow-lg shadow-teal-600/20"
+            className="sc-analyze-btn"
           >
-            Analyze Symptoms
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <span>
+              {selectedIds.length > 0
+                ? `Analyze ${selectedIds.length} ${selectedIds.length === 1 ? 'Symptom' : 'Symptoms'}`
+                : 'Select symptoms to analyze'}
+            </span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </button>
-          {selectedIds.length === 0 && (
-            <p className="text-xs text-slate-400">Please select at least 1 symptom above to enable analysis</p>
+          {selectedIds.length === 0 ? (
+            <p className="text-xs text-slate-500 font-medium">Please select at least 1 symptom above to enable analysis</p>
+          ) : (
+            <p className="text-xs text-teal-700 font-semibold flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Ready for evaluation · Instant evidence-informed triage guidance
+            </p>
           )}
         </section>
       </form>

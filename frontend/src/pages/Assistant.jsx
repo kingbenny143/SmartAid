@@ -135,7 +135,7 @@ const Assistant = () => {
       </header>
 
       <div className="chat-page fade-in min-w-0">
-        <div className="chat-container border border-slate-200/90 shadow-xl bg-white flex flex-col rounded-3xl min-h-[500px] sm:min-h-[600px] overflow-hidden">
+        <div className="chat-container border border-slate-200/90 shadow-xl bg-white flex flex-col rounded-3xl h-[calc(100vh-210px)] min-h-[580px] max-h-[820px] overflow-hidden">
           {/* Header */}
           <div className="chat-shell-header px-4 sm:px-6 py-3.5 sm:py-4 bg-gradient-to-r from-slate-50 via-white to-teal-50/30 border-b border-slate-100 flex items-center justify-between gap-3 shrink-0">
             <div className="flex items-center gap-3 min-w-0">
@@ -179,7 +179,6 @@ const Assistant = () => {
             className="conversation chat-shell-body flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 min-w-0"
             role="log"
             aria-live="polite"
-            style={{ minHeight: '320px', maxHeight: 'calc(75vh - 200px)' }}
           >
             {messages.map((m, i) => (
               <div key={i} className="w-full min-w-0">
@@ -211,7 +210,7 @@ const Assistant = () => {
 
           {/* Contextual Suggested Prompts */}
           {activeSuggestedPrompts.length > 0 && !thinking && (
-            <div className="px-4 sm:px-6 py-2.5 bg-slate-50/70 border-t border-slate-100 flex items-center gap-2 overflow-x-auto scrollbar-thin">
+            <div className="px-4 sm:px-6 py-2.5 bg-slate-50/70 border-t border-slate-100 flex items-center gap-2 overflow-x-auto scrollbar-thin shrink-0">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0">
                 Suggested:
               </span>
@@ -236,7 +235,7 @@ const Assistant = () => {
 
           {/* Quick Starters if no user messages yet */}
           {!hasUserMessage && !thinking && (
-            <div className="chat-shell-starters px-4 sm:px-6 py-3 border-t border-slate-100 bg-white">
+            <div className="chat-shell-starters px-4 sm:px-6 py-3 border-t border-slate-100 bg-white shrink-0">
               <span className="chat-shell-starters-label text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2 block">
                 Common Topics
               </span>
@@ -257,41 +256,34 @@ const Assistant = () => {
           )}
 
           {/* Subtle Disclaimer */}
-          <div className="chat-disclaimer px-4 sm:px-6 py-2 bg-slate-50/50 border-t border-slate-100">
+          <div className="chat-disclaimer px-4 sm:px-6 py-1.5 bg-slate-50/50 border-t border-slate-100 shrink-0">
             <Disclaimer tone="subtle" />
           </div>
 
           {/* Message Composer */}
-          <form onSubmit={submit} className="composer chat-shell-composer p-3 sm:p-4 bg-white border-t border-slate-200">
-            <div className="flex items-end gap-2 sm:gap-3 min-w-0">
-              <div className="flex-1 relative min-w-0">
-                <textarea
-                  ref={textareaRef}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask about symptoms, burns, fever, first aid, or preventive habits..."
-                  rows={1}
-                  className="form-textarea !rounded-2xl !text-[14.5px] !py-3 !px-4 leading-relaxed resize-none shadow-sm min-h-[50px] max-h-[140px] w-full border-slate-200 focus:border-teal-500 focus:ring-teal-500/20"
-                  aria-label="Message to Smart Aid Assistant"
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault()
-                      submit(e)
-                    }
-                  }}
-                  disabled={thinking}
-                />
-              </div>
+          <form onSubmit={submit} className="chat-shell-composer p-3 sm:p-4 bg-white border-t border-slate-200 shrink-0">
+            <div className="chat-composer-box">
+              <textarea
+                ref={textareaRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ask about symptoms, burns, fever, first aid, or preventive habits..."
+                rows={1}
+                className="w-full text-[14.5px] leading-relaxed resize-none outline-none border-0 bg-transparent text-slate-800 placeholder:text-slate-400 min-h-[42px] max-h-[120px] p-1"
+                aria-label="Message to Smart Aid Assistant"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault()
+                    submit(e)
+                  }
+                }}
+                disabled={thinking}
+              />
               <button
                 type="submit"
                 disabled={!input.trim() || thinking}
                 aria-label="Send message"
-                className={
-                  'shrink-0 w-11 h-11 sm:w-12 sm:h-12 !rounded-2xl flex items-center justify-center font-semibold text-white transition-all active:scale-95 shadow-md ' +
-                  (input.trim() && !thinking
-                    ? 'bg-gradient-to-br from-teal-500 to-teal-700 hover:from-teal-600 hover:to-teal-800 shadow-teal-600/30'
-                    : 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none')
-                }
+                className={'chat-send-btn ' + (input.trim() && !thinking ? 'is-active' : '')}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="22" y1="2" x2="11" y2="13" />

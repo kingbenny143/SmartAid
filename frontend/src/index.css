@@ -2738,45 +2738,56 @@ kbd {
   scroll-margin-top: 100px;
 }
 
-/* Symptom checker radio/option cards — tight, consistent, equal height */
+/* Symptom checker radio/option cards — premium elevated cards with clear active feedback */
 .sc-option-card {
   position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 12px;
-  padding: 15px 17px;
+  padding: 16px 18px;
   min-height: 100%;
   height: 100%;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
   cursor: pointer;
-  transition:
-    border-color var(--transition-base),
-    background var(--transition-base),
-    box-shadow var(--transition-base);
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
   width: 100%;
-  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .sc-option-card:hover {
-  border-color: #c9d6e0;
-  background: #fbfcfd;
+  border-color: #99f6e4;
+  background: #fbfdfd;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 10px -2px rgba(13, 148, 136, 0.08);
 }
 
 .sc-option-card.is-selected {
-  border-color: var(--color-primary-500);
-  background: var(--color-primary-50);
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+  border-color: #0d9488 !important;
+  background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%) !important;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.16), 0 2px 6px rgba(13, 148, 136, 0.06);
+}
+
+.sc-option-card.is-severity-moderate.is-selected {
+  border-color: #d97706 !important;
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%) !important;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.16), 0 2px 6px rgba(217, 119, 6, 0.06) !important;
+}
+
+.sc-option-card.is-severity-severe.is-selected {
+  border-color: #e11d48 !important;
+  background: linear-gradient(135deg, #fff1f2 0%, #ffffff 100%) !important;
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.16), 0 2px 6px rgba(225, 29, 72, 0.06) !important;
 }
 
 .sc-option-card:focus-within {
   outline: none;
-  border-color: var(--color-primary-500);
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.18);
 }
 
 .sc-option-card input[type="radio"] {
@@ -2787,60 +2798,65 @@ kbd {
 
 .sc-option-indicator {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--color-border-strong);
-  border-radius: var(--radius-full);
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e1;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-base);
-  background: #fff;
+  transition: all 0.15s ease;
+  background: #ffffff;
 }
 
 .sc-option-card.is-selected .sc-option-indicator {
-  border-color: var(--color-primary-600);
-  background: var(--color-primary-600);
+  border-color: #0d9488;
+  background: #0d9488;
+}
+
+.sc-option-card.is-severity-moderate.is-selected .sc-option-indicator {
+  border-color: #d97706;
+  background: #d97706;
+}
+
+.sc-option-card.is-severity-severe.is-selected .sc-option-indicator {
+  border-color: #e11d48;
+  background: #e11d48;
 }
 
 .sc-option-indicator::after {
   content: "";
   width: 8px;
   height: 8px;
-  border-radius: var(--radius-full);
-  background: #fff;
+  border-radius: 9999px;
+  background: #ffffff;
   transform: scale(0);
-  transition: transform var(--transition-fast);
+  transition: transform 0.15s ease;
 }
 
 .sc-option-card.is-selected .sc-option-indicator::after {
   transform: scale(1);
 }
 
-/* Analyze button — 280–320px wide, ~52–56px tall, clearly clickable */
+/* Analyze button — vibrant, high-contrast, clear enabled vs disabled states */
 .sc-analyze-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 0 28px;
-  min-width: 300px;
-  width: min(320px, 100%);
+  padding: 0 32px;
+  min-width: 280px;
+  width: min(340px, 100%);
   height: 54px;
-  border-radius: var(--radius-lg);
+  border-radius: 16px;
   font-weight: 700;
   font-size: 1rem;
   line-height: 1;
-  letter-spacing: -0.005em;
-  background: var(--color-primary-600);
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
   color: #ffffff;
-  box-shadow:
-    0 1px 2px rgba(15, 118, 110, 0.15),
-    0 4px 12px -2px rgba(13, 148, 136, 0.35);
-  transition:
-    background var(--transition-base),
-    box-shadow var(--transition-base),
-    transform var(--transition-fast);
+  box-shadow: 0 4px 14px -2px rgba(13, 148, 136, 0.45);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
   border: 1px solid transparent;
@@ -2850,11 +2866,9 @@ kbd {
 }
 
 .sc-analyze-btn:hover:not(:disabled) {
-  background: var(--color-primary-700);
-  box-shadow:
-    0 1px 2px rgba(15, 118, 110, 0.18),
-    0 6px 18px -2px rgba(13, 148, 136, 0.45);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+  box-shadow: 0 6px 20px -2px rgba(13, 148, 136, 0.55);
+  transform: translateY(-1.5px);
 }
 
 .sc-analyze-btn:active:not(:disabled) {
@@ -2863,14 +2877,16 @@ kbd {
 
 .sc-analyze-btn:focus-visible {
   outline: none;
-  box-shadow:
-    0 0 0 4px rgba(20, 184, 166, 0.22),
-    0 4px 12px -2px rgba(13, 148, 136, 0.35);
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.25), 0 4px 12px -2px rgba(13, 148, 136, 0.4);
 }
 
 .sc-analyze-btn:disabled {
+  background: #e2e8f0 !important;
+  color: #94a3b8 !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: none !important;
   cursor: not-allowed;
-  opacity: 0.55;
+  opacity: 1 !important;
   pointer-events: none;
 }
 
@@ -3281,4 +3297,183 @@ kbd {
   color: #0d9488;
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(13, 148, 136, 0.18);
+}
+
+/* ============ First Aid Step-by-Step Modal Styles ============ */
+.fa-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.fa-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  border-radius: 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 51;
+}
+
+.fa-modal-head {
+  padding: 22px 28px;
+  border-bottom: 1.5px solid #f1f5f9;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.fa-modal-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.fa-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: scale(1.05);
+}
+
+.fa-modal-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px 28px;
+}
+
+.fa-modal-foot {
+  padding: 16px 28px;
+  border-top: 1.5px solid #f1f5f9;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.fa-warning-card {
+  border-radius: 18px;
+  padding: 18px 20px;
+  border: 1.5px solid #fecdd3;
+  background: linear-gradient(135deg, #fff1f2 0%, #fff7ed 100%);
+  box-shadow: 0 1px 3px rgba(225, 29, 72, 0.06);
+}
+
+.fa-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  transition: all 0.18s ease;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.fa-step-item:hover {
+  border-color: #99f6e4;
+  background: #fbfdfd;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px -2px rgba(13, 148, 136, 0.08);
+}
+
+.fa-step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.25);
+}
+
+.fa-step-num.is-emergency {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+  box-shadow: 0 2px 6px rgba(225, 29, 72, 0.25);
+}
+
+/* ============ Assistant Chat Enhanced Styles ============ */
+.chat-composer-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  transition: all 0.18s ease;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.chat-composer-box:focus-within {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3.5px rgba(13, 148, 136, 0.15);
+}
+
+.chat-send-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #cbd5e1;
+  background: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transition: all 0.18s ease;
+}
+
+.chat-send-btn.is-active {
+  border-color: transparent;
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(13, 148, 136, 0.35);
+}
+
+.chat-send-btn.is-active:hover {
+  background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(13, 148, 136, 0.45);
+}
+
+.chat-send-btn.is-active:active {
+  transform: translateY(1px);
 }
