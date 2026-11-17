@@ -1,0 +1,188 @@
+{
+  "topics": [
+    {
+      "id": "cuts",
+      "title": "Minor Cuts & Scrapes",
+      "category": "Everyday Wounds",
+      "description": "Educational first-aid guidance for small, clean cuts and abrasions with mild bleeding.",
+      "steps": [
+        "Wash your hands thoroughly with clean water and soap before touching the wound.",
+        "Apply gentle, direct pressure using a clean cloth or sterile gauze for 3–5 minutes to stop minor bleeding.",
+        "Rinse the wound gently under cool or lukewarm running tap water to wash away loose dirt and particles.",
+        "Gently pat the surrounding skin dry with a clean sterile pad (avoid aggressive rubbing).",
+        "Apply a thin layer of petroleum jelly or mild antiseptic ointment to keep the wound surface moist and prevent scarring.",
+        "Cover loosely with a sterile adhesive bandage or non-stick dressing to protect against dirt and friction.",
+        "Inspect and replace the dressing once daily, or immediately whenever it gets damp or dirty."
+      ],
+      "warning": "Seek immediate professional care if bleeding doesn't stop after 10–15 minutes of firm pressure, if the cut is deep or gaping, caused by a rusty/dirty object, an animal/human bite, or if signs of infection emerge (red streaks, warmth, throbbing, pus, fever)."
+    },
+    {
+      "id": "minor-burns",
+      "title": "Minor Burns & Scalds",
+      "category": "Thermal & Environmental",
+      "description": "Cooling and protecting minor, superficial first-degree thermal burns and mild scalds.",
+      "steps": [
+        "Immediately remove the heat source to prevent further tissue damage.",
+        "Hold the burned area under gentle, cool running tap water for 10 to 20 minutes (do NOT use ice or freezing water).",
+        "Carefully remove rings, watches, or tight clothing around the burn before swelling begins (do not remove clothing stuck to burned skin).",
+        "Do NOT pop any blisters that form, as intact blister skin serves as a sterile biological protective layer.",
+        "Apply pure aloe vera gel or soothing water-based burn lotion. Never apply butter, cooking oils, mayonnaise, or toothpaste.",
+        "Cover very loosely with a clean, sterile non-stick bandage or clean food cling film.",
+        "Over-the-counter pain relievers (e.g. acetaminophen or ibuprofen) can help reduce discomfort if medically safe for you."
+      ],
+      "warning": "Call emergency services immediately for burns larger than the palm of a hand, deep burns with white/charred skin, chemical or electrical burns, or any burns covering the face, airway, hands, feet, groin, or major joints."
+    },
+    {
+      "id": "sprains",
+      "title": "Sprains, Strains & Joint Care",
+      "category": "Musculoskeletal",
+      "description": "Evidence-informed supportive management using the R.I.C.E. protocol for mild ankle, wrist, or muscle injuries.",
+      "steps": [
+        "Rest: Stop the activity immediately and avoid putting weight or strain on the affected joint or muscle.",
+        "Ice: Apply a cold ice pack wrapped in a damp towel for 15–20 minutes at a time, every 2–3 hours during the first 48 hours (never place bare ice directly onto skin).",
+        "Compression: Wrap the injured area with a snug elastic compression bandage starting furthest from the heart. Ensure it is supportive without cutting off circulation or tingling.",
+        "Elevation: Prop the injured limb up on pillows above the level of your heart whenever seated or lying down to reduce swelling.",
+        "Avoid heat, alcohol, vigorous massage, or intense exercise for the first 48–72 hours as these worsen acute swelling."
+      ],
+      "warning": "Seek immediate medical evaluation if you heard a loud 'pop', cannot bear any weight, if there is visible deformity, numbness, coldness in toes/fingers, or severe uncontrollable pain."
+    },
+    {
+      "id": "choking",
+      "title": "Choking (Conscious Adult/Child)",
+      "category": "Emergency Response",
+      "description": "Immediate life-saving response when someone's airway is obstructed and they cannot speak, cough, or breathe.",
+      "steps": [
+        "Recognize the sign: Person clutching neck, turning blue, or unable to cough/speak. Ask 'Are you choking?' - if they nod and cannot speak, act immediately.",
+        "Call for help: Instruct a bystander to call local emergency services (911 / 112) immediately while you assist.",
+        "Deliver 5 Back Blows: Stand slightly behind them and to one side. Support their chest with one hand and lean them forward. Deliver 5 sharp blows between the shoulder blades with the heel of your hand.",
+        "Deliver 5 Abdominal Thrusts (Heimlich): Stand behind them, wrap your arms around their waist. Make a fist with one hand, thumb-side inward just above the navel. Grasp your fist with your other hand and pull sharply inward and upward 5 times.",
+        "Repeat alternating cycles of 5 back blows and 5 abdominal thrusts until the object is expelled or help arrives.",
+        "If the person becomes unresponsive, lower them safely to the floor and start CPR immediately, checking the mouth for visible foreign objects before rescue breaths."
+      ],
+      "warning": "Do not perform abdominal thrusts on infants under 1 year old (use alternate 5 back blows and 5 chest thrusts). For pregnant individuals, perform chest thrusts instead of abdominal thrusts. Anyone who received abdominal thrusts should see a doctor."
+    },
+    {
+      "id": "cpr",
+      "title": "Hands-Only CPR Basics",
+      "category": "Emergency Response",
+      "description": "Core steps for bystander hands-only Cardiopulmonary Resuscitation for an unresponsive person not breathing normally.",
+      "steps": [
+        "Check responsiveness & safety: Tap collarbone firmly and shout 'Are you okay?'. Check if scene is safe to enter.",
+        "Call emergency services: Shout to a bystander: 'Call emergency services and bring an AED (automated external defibrillator)!'. Put phone on speaker.",
+        "Check breathing: Look at chest for 5–10 seconds. If they are not breathing or only gasping abnormally, start CPR immediately.",
+        "Hand position: Place the heel of one hand in the center of the chest (lower half of sternum), and interlock your other hand on top.",
+        "Push hard and fast: Lock your elbows straight and push down at least 2 inches (5 cm) deep at a rate of 100–120 beats per minute (to the rhythm of 'Stayin' Alive').",
+        "Allow full chest recoil: Let the chest come completely back up between compressions without taking your hands off the chest.",
+        "Use an AED as soon as available: Turn it on and follow the spoken voice prompts without delay. Continue compressions until paramedics take over."
+      ],
+      "warning": "Hands-only CPR doubles or triples survival chances in cardiac arrest. Do not hesitate. Any CPR is vastly better than no CPR. Continue until emergency personnel arrive or the person begins moving/breathing."
+    },
+    {
+      "id": "heatstroke",
+      "title": "Heat Exhaustion & Heatstroke",
+      "category": "Thermal & Environmental",
+      "description": "Critical differentiation and emergency cooling protocols for heat-related illness in hot weather or exertion.",
+      "steps": [
+        "Identify Heat Exhaustion: Heavy sweating, pale/cool skin, nausea, dizziness, fatigue, fast pulse, muscle cramps.",
+        "Move to cooling: Immediately relocate the person into shade, an air-conditioned room, or cool vehicle.",
+        "Cool down active body: Loosen or remove excess tight clothing. Sponge skin with cool water, fan them, or place cold damp towels on neck, armpits, and groin.",
+        "Hydrate slowly: If conscious and not vomiting, provide sips of cool water or electrolyte drink.",
+        "Identify Heatstroke (EMERGENCY): Body temp > 103°F (39.4°C), hot/red/dry skin (or profuse sweat), confusion, slurred speech, delirium, seizures, or loss of consciousness.",
+        "Rapid cooling for Heatstroke: Call emergency services immediately. Immerse in a cool bath/tub if possible, or douse with cold water and ice packs in armpits/neck while awaiting ambulance."
+      ],
+      "warning": "Heatstroke is a medical emergency with high risk of organ damage or death without rapid cooling. Call emergency services right away. Do not give medications like aspirin or acetaminophen for heatstroke."
+    },
+    {
+      "id": "nosebleeds",
+      "title": "Nosebleeds (Epistaxis)",
+      "category": "Everyday Wounds",
+      "description": "Safe, correct steps to manage anterior nasal bleeding and dispel dangerous common myths.",
+      "steps": [
+        "Sit upright and lean slightly FORWARD. Do NOT tilt your head backwards, as tilting back causes blood to drain down the throat, leading to choking or vomiting.",
+        "Pinch the soft lower part of the nose (just below the bony bridge) firmly using your thumb and index finger.",
+        "Breathe calmly through your mouth and maintain firm, continuous pinching for a full 10 to 15 minutes by the clock.",
+        "Resist the urge to release pressure every couple minutes to check if bleeding has stopped.",
+        "Place an ice pack or cool damp cloth across the bridge of the nose and cheeks to help constrict blood vessels.",
+        "After releasing, rest quietly for 1–2 hours. Avoid sniffing, blowing your nose, bending over, or picking the nose."
+      ],
+      "warning": "Seek emergency medical care if bleeding continues past 20 minutes despite firm pinching, if bleeding is unusually heavy, follows a blunt head/face trauma, or causes dizziness, confusion, or difficulty breathing."
+    },
+    {
+      "id": "allergic-reaction",
+      "title": "Allergic Reactions & Anaphylaxis",
+      "category": "Emergency Response",
+      "description": "Recognizing mild allergic symptoms versus life-threatening anaphylaxis and administering epinephrine.",
+      "steps": [
+        "Mild/Moderate Signs: Localized hives, skin itching, mild swelling around lips/eyes, sneezing, mild stomach discomfort.",
+        "Severe Anaphylaxis Signs: Swelling of tongue or throat, hoarse voice, difficulty breathing or wheezing, dizziness, fainting, clammy skin, or sense of impending doom.",
+        "Use Epinephrine Auto-Injector: If the person carries an EpiPen/auto-injector and shows severe signs, help them use it immediately into the outer mid-thigh. Hold firmly in place for 3–5 seconds.",
+        "Call Emergency Services: Dial 911 / 112 immediately. Inform the operator of suspected anaphylaxis.",
+        "Positioning: Keep the person lying flat with legs elevated (unless breathing is difficult, then seated upright). Do NOT have them stand or walk.",
+        "Second dose: If symptoms do not improve within 5–15 minutes and paramedics have not arrived, a second auto-injector dose can be administered if available."
+      ],
+      "warning": "Anaphylaxis is rapidly fatal if untreated. Epinephrine is the primary life-saving medicine; antihistamines alone are NOT sufficient for severe allergic airway or cardiovascular symptoms."
+    },
+    {
+      "id": "eye-injury",
+      "title": "Eye Injury & Chemical Irritation",
+      "category": "Everyday Wounds",
+      "description": "Emergency flushing and protection for chemical splashes, grit, or foreign particles in the eye.",
+      "steps": [
+        "Chemical Splash: Flush immediately under gentle, lukewarm tap water or saline for at least 15–20 minutes without pausing. Hold the eyelid open.",
+        "Tilt head so affected eye is lowest to prevent chemical from washing into the unaffected eye.",
+        "Remove contact lenses during flushing if they come out easily; do not delay rinsing to find contacts.",
+        "Foreign Particle / Dust: Blink rapidly to stimulate natural tears. Gently rinse with sterile saline or eye wash. Do NOT rub the eye.",
+        "Never use tweezers, cotton swabs, or sharp tools directly on the eyeball to dislodge an object.",
+        "If an object is impaled or penetrated in the eye, do NOT remove it. Place a rigid protective cup over the eye and seek immediate emergency care."
+      ],
+      "warning": "Chemical burns (especially alkaline products like drain cleaner, bleach, or lye) require immediate continuous irrigation and emergency transport to an eye clinic or hospital emergency room."
+    },
+    {
+      "id": "fainting",
+      "title": "Fainting & Lightheadedness",
+      "category": "General First Aid",
+      "description": "Care for brief loss of consciousness (vasovagal syncope) or sudden presyncope.",
+      "steps": [
+        "If feeling faint: Sit down immediately and lower your head between your knees, or lie down flat on your back.",
+        "If someone has fainted: Lay them flat on their back and check that they are breathing normally.",
+        "Elevate their legs about 12 inches (30 cm) above heart level to restore blood flow to the brain.",
+        "Loosen restrictive collars, ties, or tight belts, and ensure good air circulation around them.",
+        "Do NOT splash cold water on their face, slap them, or attempt to force water/food into an unconscious person.",
+        "Once conscious, keep them resting quietly for at least 10–15 minutes before having them stand up slowly.",
+        "If they do not regain consciousness within 60 seconds, place them in the recovery position and call emergency services."
+      ],
+      "warning": "Seek immediate emergency evaluation if fainting is accompanied by chest pain, shortness of breath, palpitations, occurred during heavy exercise, or if the person hit their head during the fall."
+    },
+    {
+      "id": "minor-wounds",
+      "title": "Minor Wound Care & Infection Prevention",
+      "category": "Everyday Wounds",
+      "description": "Proper cleaning, disinfection, and monitoring of scrapes, punctures, and surface skin injuries.",
+      "steps": [
+        "Clean hands thoroughly before touching any wound or bandage material.",
+        "Clean the wound under lukewarm tap water. Mild soap can be used around the surrounding skin, but avoid getting harsh soap inside the raw cut.",
+        "Avoid using hydrogen peroxide or rubbing alcohol directly inside fresh wounds, as they damage delicate healthy cells and delay natural healing.",
+        "Pat dry with clean gauze, apply a thin protective layer of ointment, and apply a clean sterile bandage.",
+        "Watch daily for infection: increasing redness spreading outward, localized warmth, swelling, foul odor, or fever.",
+        "Check tetanus immunization status: an updated booster is recommended every 10 years (or within 5 years for dirty/contaminated wounds)."
+      ],
+      "warning": "Puncture wounds (from nails, splinters, animal bites) have high risk of deep tissue bacterial infections and tetanus. Professional evaluation is strongly recommended."
+    },
+    {
+      "id": "poisoning",
+      "title": "Suspected Poisoning & Overdose",
+      "category": "Emergency Response",
+      "description": "Immediate actions for accidental ingestion or inhalation of toxic household products or medications.",
+      "steps": [
+        "Check vital signs and responsiveness. If the person is unconscious, convulsing, or not breathing, call 911 / 112 immediately.",
+        "Identify the substance: Safely locate the product container, bottle, or packaging to read the active ingredients to emergency responders.",
+        "Do NOT induce vomiting unless specifically directed by medical personnel or Poison Control (vomiting corrosive chemicals damages the esophagus twice).",
+        "Do NOT give milk, raw eggs, or home remedies without expert guidance.",
+        "If poison is on the skin or clothing: Remove contaminated clothes immediately and wash skin with copious water for 15 minutes.",
+        "If toxic fumes were inhaled: Immediately move the person into fresh outdoor air.",
+        "Contact your national or regional Poison Control Center immediately (in the US: 1-800-222-1222; in India: 1800-116-117 or National Poisons Information Centre 011-26589391)."
+      ],
+      "warning": "Never wait for symptoms to appear before calling Poison Control. Rapid intervention within the first minutes can prevent life-threatening organ toxicity."
+    }
+  ]
+}
