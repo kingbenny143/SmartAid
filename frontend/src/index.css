@@ -1070,31 +1070,32 @@ p {
 .conversation {
   flex: 1 1 auto;
   height: auto;
-  min-height: 140px;
+  min-height: 180px;
   max-height: none;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 16px 16px 16px 18px;
+  padding: 20px 20px 36px 20px !important;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  scroll-behavior: smooth;
   background:
     linear-gradient(180deg, rgba(241, 245, 249, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 @media (min-width: 640px) {
   .conversation {
-    padding: 20px 26px 20px 28px;
-    gap: 16px;
-    min-height: 180px;
+    padding: 24px 26px 40px 26px !important;
+    gap: 18px;
+    min-height: 200px;
   }
 }
 
 @media (min-width: 1024px) {
   .conversation {
-    padding: 24px 30px 24px 32px;
-    gap: 18px;
-    min-height: 220px;
+    padding: 26px 32px 48px 32px !important;
+    gap: 20px;
+    min-height: 240px;
   }
 }
 
@@ -3480,8 +3481,12 @@ kbd {
 .chat-bubble-user {
   background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%) !important;
   color: #ffffff !important;
-  border-radius: 18px 18px 4px 18px !important;
+  border-radius: 20px 20px 4px 20px !important;
   box-shadow: 0 4px 12px -2px rgba(13, 148, 136, 0.35) !important;
+  padding: 12px 20px !important;
+  display: inline-block !important;
+  word-break: break-word !important;
+  line-height: 1.55 !important;
 }
 
 .chat-bubble-user,
@@ -3492,31 +3497,61 @@ kbd {
 .chat-bubble-user p {
   color: #ffffff !important;
   margin: 0 !important;
-  line-height: 1.6 !important;
+  padding: 0 !important;
+  line-height: 1.55 !important;
   font-size: 14.5px !important;
 }
 
 .chat-bubble-assistant {
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
-  border-radius: 18px 18px 18px 4px;
-  box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05);
+  border-radius: 20px 20px 20px 4px;
+  box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.05);
+  padding: 20px 24px !important;
+  word-break: break-word !important;
+}
+
+@media (max-width: 639px) {
+  .chat-bubble-assistant {
+    padding: 16px 18px !important;
+  }
+  .chat-bubble-user {
+    padding: 10px 16px !important;
+  }
 }
 
 .chat-bubble-assistant p {
   color: #334155;
-  line-height: 1.65;
+  line-height: 1.7 !important;
   font-size: 14.5px;
-  margin: 6px 0;
+  margin: 10px 0 !important;
 }
 
 .chat-bubble-assistant h4 {
   color: #0f172a;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-top: 10px;
-  margin-bottom: 4px;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em;
+  margin-top: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+.chat-bubble-assistant ul {
+  margin: 10px 0 14px !important;
+  padding-left: 20px !important;
+  list-style-type: disc !important;
+}
+
+.chat-bubble-assistant ol {
+  margin: 10px 0 14px !important;
+  padding-left: 22px !important;
+  list-style-type: decimal !important;
+}
+
+.chat-bubble-assistant li {
+  margin: 6px 0 !important;
+  line-height: 1.65 !important;
+  color: #334155 !important;
 }
 
 /* Interactive prompt pills in welcome message */
@@ -4078,25 +4113,29 @@ html.dark .chat-shell-header {
 }
 
 html.dark .chat-bubble-assistant {
-  background: #131c2e;
-  border-color: #22324b;
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.3);
+  background: #111a2e !important;
+  border-color: #22324b !important;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.3) !important;
 }
 
 html.dark .chat-bubble-assistant p {
-  color: #cbd5e1;
+  color: #cbd5e1 !important;
 }
 
 html.dark .chat-bubble-assistant h4 {
-  color: #f1f5f9;
+  color: #f1f5f9 !important;
 }
 
 html.dark .chat-bubble-assistant strong {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 html.dark .chat-bubble-assistant em {
-  color: #cbd5e1;
+  color: #cbd5e1 !important;
+}
+
+html.dark .chat-bubble-assistant li {
+  color: #cbd5e1 !important;
 }
 
 html.dark .chat-prompt-pill {

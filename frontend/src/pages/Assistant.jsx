@@ -44,7 +44,11 @@ const Assistant = () => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+      setTimeout(() => {
+        if (scrollRef.current) {
+          scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+        }
+      }, 60)
     }
   }, [messages, thinking])
 
@@ -200,12 +204,15 @@ const Assistant = () => {
                 </div>
               </div>
             )}
+
+            {/* Extra bottom spacer so content never touches the bottom border */}
+            <div className="h-4 shrink-0" aria-hidden="true" />
           </div>
 
-          {/* Suggested Follow-ups */}
-          {activeSuggestedPrompts.length > 0 && !thinking && (
-            <div className="px-4 sm:px-6 py-2 bg-gradient-to-r from-teal-50/40 via-white to-slate-50 border-t border-slate-100 flex items-center gap-2.5 shrink-0">
-              <div className="flex items-center gap-1.5 text-teal-700 font-semibold text-[11px] uppercase tracking-wider shrink-0 select-none">
+          {/* Suggested Follow-ups (shown during active conversation) */}
+          {hasUserMessage && activeSuggestedPrompts.length > 0 && !thinking && (
+            <div className="px-4 sm:px-6 py-2.5 bg-gradient-to-r from-teal-50/40 via-white to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2.5 shrink-0">
+              <div className="flex items-center gap-1.5 text-teal-700 dark:text-teal-400 font-semibold text-[11px] uppercase tracking-wider shrink-0 select-none">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal-600" aria-hidden="true">
                   <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
                 </svg>
@@ -232,7 +239,7 @@ const Assistant = () => {
 
           {/* Starter Topics */}
           {!hasUserMessage && !thinking && (
-            <div className="px-4 sm:px-6 py-2 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2.5 shrink-0">
+            <div className="px-4 sm:px-6 py-2.5 bg-slate-50/80 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2.5 shrink-0">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0 select-none">
                 Topics:
               </span>
