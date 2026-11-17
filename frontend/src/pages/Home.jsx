@@ -9,7 +9,7 @@ const Home = () => {
       description:
         'Select common symptoms and receive an informational assessment with general self-care guidance and awareness.',
       tag: 'Awareness',
-      tagStyle: 'text-teal-700 bg-teal-50 border-teal-100',
+      tagStyle: 'text-teal-700 bg-teal-50 border-teal-100 dark:text-teal-300 dark:bg-teal-950/60 dark:border-teal-800/60',
       iconGradient: 'from-teal-500 to-teal-700',
       iconShadow: 'shadow-teal-500/20',
       icon: (
@@ -24,7 +24,7 @@ const Home = () => {
       description:
         'Educational first-aid steps for minor, common situations including cuts, burns, sprains, and nosebleeds.',
       tag: 'Education',
-      tagStyle: 'text-amber-800 bg-amber-50 border-amber-100',
+      tagStyle: 'text-amber-800 bg-amber-50 border-amber-100 dark:text-amber-300 dark:bg-amber-950/60 dark:border-amber-800/60',
       iconGradient: 'from-amber-500 to-orange-600',
       iconShadow: 'shadow-orange-500/20',
       icon: (
@@ -41,7 +41,7 @@ const Home = () => {
       description:
         'Chat-based preventive health support — ask general questions about common symptoms and wellness habits.',
       tag: 'Support',
-      tagStyle: 'text-sky-800 bg-sky-50 border-sky-100',
+      tagStyle: 'text-sky-800 bg-sky-50 border-sky-100 dark:text-sky-300 dark:bg-sky-950/60 dark:border-sky-800/60',
       iconGradient: 'from-sky-500 to-indigo-600',
       iconShadow: 'shadow-indigo-500/20',
       icon: (

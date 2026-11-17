@@ -27,18 +27,18 @@ const riskStyles = {
 
 const SectionCard = ({ title, icon, tone = 'neutral', children }) => {
   const tones = {
-    neutral: 'bg-white border-slate-100 text-slate-900',
-    success: 'bg-emerald-50/40 border-emerald-100 text-emerald-900',
-    warning: 'bg-amber-50/40 border-amber-100 text-amber-900',
-    danger: 'bg-rose-50/50 border-rose-100 text-rose-900',
-    info: 'bg-sky-50/40 border-sky-100 text-sky-900',
+    neutral: 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100',
+    success: 'bg-emerald-50/40 dark:bg-emerald-950/20 border-emerald-100 dark:border-emerald-800/40 text-emerald-900 dark:text-emerald-200',
+    warning: 'bg-amber-50/40 dark:bg-amber-950/20 border-amber-100 dark:border-amber-800/40 text-amber-900 dark:text-amber-200',
+    danger: 'bg-rose-50/50 dark:bg-rose-950/25 border-rose-100 dark:border-rose-800/40 text-rose-900 dark:text-rose-200',
+    info: 'bg-sky-50/40 dark:bg-sky-950/20 border-sky-100 dark:border-sky-800/40 text-sky-900 dark:text-sky-200',
   }
   const headerTones = {
-    neutral: 'text-slate-900',
-    success: 'text-emerald-800',
-    warning: 'text-amber-800',
-    danger: 'text-rose-800',
-    info: 'text-sky-800',
+    neutral: 'text-slate-900 dark:text-white',
+    success: 'text-emerald-800 dark:text-emerald-300',
+    warning: 'text-amber-800 dark:text-amber-300',
+    danger: 'text-rose-800 dark:text-rose-300',
+    info: 'text-sky-800 dark:text-sky-300',
   }
   return (
     <section className={`rounded-2xl p-6 sm:p-7 border shadow-sm h-full flex flex-col min-w-0 ${tones[tone]}`}>
@@ -53,9 +53,9 @@ const SectionCard = ({ title, icon, tone = 'neutral', children }) => {
 
 const NumberedList = ({ items, accent = 'teal' }) => {
   const accents = {
-    teal: 'bg-teal-100 text-teal-800',
-    sky: 'bg-sky-100 text-sky-800',
-    emerald: 'bg-emerald-100 text-emerald-800',
+    teal: 'bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-200',
+    sky: 'bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-200',
+    emerald: 'bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200',
   }
   return (
     <ul className="space-y-3.5">
@@ -64,7 +64,7 @@ const NumberedList = ({ items, accent = 'teal' }) => {
           <span className={`shrink-0 w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center mt-0.5 ${accents[accent]}`}>
             {i + 1}
           </span>
-          <span className="text-[14.5px] leading-relaxed text-slate-700">{item}</span>
+          <span className="text-[14.5px] leading-relaxed text-slate-700 dark:text-slate-300">{item}</span>
         </li>
       ))}
     </ul>
@@ -110,13 +110,13 @@ const ResultCard = ({ result }) => {
                   {result.possible_categories.map((c, i) => (
                     <li
                       key={i}
-                      className="px-3.5 py-2 rounded-xl bg-white border border-sky-100 text-slate-800 text-[13.5px] font-semibold shadow-sm break-words"
+                      className="px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-sky-100 dark:border-sky-900/60 text-slate-800 dark:text-slate-100 text-[13.5px] font-semibold shadow-sm break-words"
                     >
                       {c}
                     </li>
                   ))}
                 </ul>
-                <p className="text-[12px] text-slate-500 mt-4 leading-relaxed">
+                <p className="text-[12px] text-slate-500 dark:text-slate-400 mt-4 leading-relaxed">
                   Categories are informational and based on general health-pattern matching.
                 </p>
               </SectionCard>
@@ -152,7 +152,7 @@ const ResultCard = ({ result }) => {
               {result.red_flags.map((r, i) => (
                 <li key={i} className="flex items-start gap-3 min-w-0">
                   <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-rose-500" aria-hidden="true" />
-                  <span className="text-[14.5px] leading-relaxed text-rose-900 font-medium break-words">
+                  <span className="text-[14.5px] leading-relaxed text-rose-900 dark:text-rose-200 font-medium break-words">
                     {r}
                   </span>
                 </li>

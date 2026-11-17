@@ -24,8 +24,8 @@ const StepHeader = ({ num, title, subtitle }) => (
       {num}
     </div>
     <div className="min-w-0 flex-1">
-      <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-tight">{title}</h2>
-      {subtitle && <p className="text-[13.5px] text-slate-500 mt-1 leading-relaxed">{subtitle}</p>}
+      <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">{title}</h2>
+      {subtitle && <p className="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{subtitle}</p>}
     </div>
   </div>
 )
@@ -134,10 +134,10 @@ const SymptomChecker = () => {
     <div className="page-wrap page-wrap--symptomchecker min-w-0 max-w-6xl mx-auto px-3 sm:px-6 py-6 sm:py-10">
       <header className="page-header fade-in mb-8 sm:mb-10 min-w-0">
         <span className="page-eyebrow">Interactive Health Assessment</span>
-        <h1 className="page-title text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+        <h1 className="page-title text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
           Symptom Checker
         </h1>
-        <p className="text-[15px] sm:text-[16px] leading-relaxed text-slate-600 max-w-2xl break-words">
+        <p className="text-[15px] sm:text-[16px] leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl break-words">
           Select what you're experiencing to receive structured health awareness, supportive self-care recommendations, and safety red flags.
         </p>
       </header>
@@ -291,8 +291,8 @@ const SymptomChecker = () => {
                     />
                     <div className="w-full flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
-                        <div className="text-[15px] font-bold text-slate-900 leading-tight">{opt.label}</div>
-                        <div className="text-[12.5px] text-slate-500 mt-1">{opt.sub}</div>
+                        <div className="text-[15px] font-bold text-slate-900 dark:text-white leading-tight">{opt.label}</div>
+                        <div className="text-[12.5px] text-slate-500 dark:text-slate-400 mt-1">{opt.sub}</div>
                       </div>
                       <span className="sc-option-indicator shrink-0 mt-0.5" aria-hidden="true" />
                     </div>
@@ -337,8 +337,8 @@ const SymptomChecker = () => {
                           <span className={`w-4 h-4 rounded-full ${opt.dot} ring-4 ${opt.ring} transition-all ${isSel ? 'scale-110' : 'opacity-70 scale-90'}`} />
                         </span>
                         <div className="flex-1 min-w-0">
-                          <div className="text-[15px] font-bold text-slate-900 leading-tight">{opt.label}</div>
-                          <div className="text-[12.5px] text-slate-600 mt-1 leading-relaxed">{opt.desc}</div>
+                          <div className="text-[15px] font-bold text-slate-900 dark:text-white leading-tight">{opt.label}</div>
+                          <div className="text-[12.5px] text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{opt.desc}</div>
                         </div>
                       </div>
                       <span className="sc-option-indicator shrink-0 mt-0.5" aria-hidden="true" />

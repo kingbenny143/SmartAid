@@ -74,21 +74,21 @@ const AssessmentResult = () => {
       </header>
 
       {/* Snapshot badges */}
-      <div className="mb-6 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-wrap items-center gap-3 text-xs text-slate-600">
-        <span className="font-semibold text-slate-800">Evaluated Parameters:</span>
+      <div className="mb-6 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
+        <span className="font-semibold text-slate-800 dark:text-slate-200">Evaluated Parameters:</span>
         {result.duration && (
-          <span className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 font-medium">
-            Duration: <strong className="text-slate-800">{result.duration}</strong>
+          <span className="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium">
+            Duration: <strong className="text-slate-800 dark:text-slate-100">{result.duration}</strong>
           </span>
         )}
         {result.severity && (
-          <span className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 font-medium capitalize">
-            Severity: <strong className="text-slate-800">{result.severity}</strong>
+          <span className="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium capitalize">
+            Severity: <strong className="text-slate-800 dark:text-slate-100">{result.severity}</strong>
           </span>
         )}
         {symptomsList.length > 0 && (
-          <span className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 font-medium">
-            Symptoms: <strong className="text-slate-800">{symptomsList.join(', ')}</strong>
+          <span className="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium">
+            Symptoms: <strong className="text-slate-800 dark:text-slate-100">{symptomsList.join(', ')}</strong>
           </span>
         )}
       </div>
@@ -96,8 +96,8 @@ const AssessmentResult = () => {
       <ResultCard result={result} />
 
       {result.disclaimer && (
-        <div className="mt-8 p-5 rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50/80 to-amber-50/40 text-[14px] leading-relaxed text-amber-900 flex items-start gap-3 shadow-sm min-w-0">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5 text-amber-700" aria-hidden="true">
+        <div className="mt-8 p-5 rounded-2xl border border-amber-200 dark:border-amber-800/60 bg-gradient-to-br from-amber-50/80 to-amber-50/40 dark:from-amber-950/40 dark:to-amber-950/20 text-[14px] leading-relaxed text-amber-900 dark:text-amber-200 flex items-start gap-3 shadow-sm min-w-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5 text-amber-700 dark:text-amber-400" aria-hidden="true">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
             <line x1="12" y1="9" x2="12" y2="13" />
             <line x1="12" y1="17" x2="12.01" y2="17" />

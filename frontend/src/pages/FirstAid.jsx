@@ -103,10 +103,10 @@ const FirstAid = () => {
         <span className="page-eyebrow inline-block text-xs font-bold uppercase tracking-widest text-teal-700 mb-2">
           Educational Protocols
         </span>
-        <h1 className="page-title text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-3">
+        <h1 className="page-title text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3">
           First Aid Guides
         </h1>
-        <p className="text-[15px] sm:text-[16px] leading-relaxed text-slate-600 max-w-2xl break-words">
+        <p className="text-[15px] sm:text-[16px] leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl break-words">
           Clear, step-by-step educational first-aid instructions for everyday wounds, sudden injuries, and emergency response.
         </p>
 
@@ -262,12 +262,12 @@ const FirstAid = () => {
                 </div>
                 <h2
                   id="fa-modal-title"
-                  className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 leading-tight break-words"
+                  className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight break-words"
                 >
                   {active.title}
                 </h2>
                 {active.description && (
-                  <p className="text-[14px] sm:text-[15px] text-slate-600 mt-2 leading-relaxed">
+                  <p className="text-[14px] sm:text-[15px] text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
                     {active.description}
                   </p>
                 )}
@@ -312,11 +312,11 @@ const FirstAid = () => {
                             <line x1="12" y1="17" x2="12.01" y2="17" />
                           </svg>
                         </div>
-                        <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-rose-900">
+                        <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-rose-900 dark:text-rose-200">
                           Critical Safety Notice
                         </h3>
                       </div>
-                      <p className="text-[14px] sm:text-[14.5px] leading-relaxed text-rose-950 font-medium break-words pl-0.5">
+                      <p className="text-[14px] sm:text-[14.5px] leading-relaxed text-rose-950 dark:text-rose-100 font-medium break-words pl-0.5">
                         {active.warning}
                       </p>
                     </section>
@@ -326,10 +326,10 @@ const FirstAid = () => {
                   {active.steps && active.steps.length > 0 ? (
                     <section>
                       <div className="flex items-center justify-between gap-2 mb-3.5">
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                           Step-by-Step Action Guide
                         </h3>
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                           {active.steps.length} {active.steps.length === 1 ? 'Step' : 'Steps'}
                         </span>
                       </div>
@@ -340,7 +340,7 @@ const FirstAid = () => {
                               {String(i + 1).padStart(2, '0')}
                             </span>
                             <div className="flex-1 min-w-0 pt-1">
-                              <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-slate-800 font-medium break-words">
+                              <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-slate-800 dark:text-slate-100 font-medium break-words">
                                 {s}
                               </p>
                             </div>
@@ -349,12 +349,12 @@ const FirstAid = () => {
                       </ol>
                     </section>
                   ) : (
-                    <p className="text-sm text-slate-500 text-center py-6">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 text-center py-6">
                       No detailed steps available for this guide.
                     </p>
                   )}
 
-                  <section className="text-[11.5px] sm:text-[12px] text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
+                  <section className="text-[11.5px] sm:text-[12px] text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
                     {disclaimer || 'First-aid guidance is educational and does not substitute for certified clinical training. In case of life-threatening emergency, call 911 / 112 immediately.'}
                   </section>
                 </div>
@@ -363,14 +363,14 @@ const FirstAid = () => {
 
             {/* Pinned Footer */}
             <div className="fa-modal-foot">
-              <span className="text-xs text-slate-500 hidden sm:inline flex items-center gap-1.5">
+              <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-rose-500" aria-hidden="true" />
                 Emergency? Dial <strong>911 / 112</strong> immediately
               </span>
               <button
                 type="button"
                 onClick={() => setActive(null)}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl font-semibold text-sm bg-slate-100 hover:bg-slate-200 text-slate-800 transition"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl font-semibold text-sm bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-transparent dark:border-slate-700 transition"
               >
                 Close Guide
               </button>

@@ -154,13 +154,13 @@ const Assistant = () => {
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="text-[14px] sm:text-[14.5px] font-bold text-slate-900 tracking-tight truncate flex items-center gap-2">
+                <div className="text-[14px] sm:text-[14.5px] font-bold text-slate-900 dark:text-white tracking-tight truncate flex items-center gap-2">
                   Smart Aid Assistant
-                  <span className="hidden xs:inline-flex items-center px-1.5 py-0.2 rounded-full bg-teal-50 text-teal-700 border border-teal-100 font-semibold text-[9.5px]">
+                  <span className="hidden xs:inline-flex items-center px-1.5 py-0.2 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-100 dark:border-teal-800/60 font-semibold text-[9.5px]">
                     Health AI
                   </span>
                 </div>
-                <div className="text-[11.5px] text-slate-500 flex items-center gap-1.5 flex-wrap">
+                <div className="text-[11.5px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 flex-wrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
                   <span className="truncate">First-aid guidance &amp; symptom awareness</span>
                 </div>
@@ -260,7 +260,7 @@ const Assistant = () => {
           )}
 
           {/* Composer */}
-          <form onSubmit={submit} className="chat-shell-composer px-3 sm:px-5 py-3 bg-white border-t border-slate-200/80 shrink-0">
+          <form onSubmit={submit} className="chat-shell-composer px-3 sm:px-5 py-3 bg-white dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 shrink-0">
             <div className="chat-composer-box">
               <textarea
                 ref={textareaRef}

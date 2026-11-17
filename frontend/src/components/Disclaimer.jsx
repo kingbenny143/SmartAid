@@ -1,17 +1,17 @@
 const TONES = {
   default: {
-    wrap: 'bg-slate-50 border-slate-200 text-slate-600',
-    strong: 'text-slate-700',
+    wrap: 'bg-slate-50 border-slate-200 text-slate-600 dark:bg-slate-900/70 dark:border-slate-800 dark:text-slate-300',
+    strong: 'text-slate-700 dark:text-slate-200',
     icon: 'info',
   },
   amber: {
-    wrap: 'bg-amber-50 border-amber-200 text-amber-900',
-    strong: 'text-amber-900',
+    wrap: 'bg-amber-50/80 border-amber-200 text-amber-900 dark:bg-amber-950/40 dark:border-amber-800/60 dark:text-amber-200',
+    strong: 'text-amber-900 dark:text-amber-100',
     icon: 'warn',
   },
   subtle: {
-    wrap: 'bg-transparent border border-slate-100 text-slate-500',
-    strong: 'text-slate-600',
+    wrap: 'bg-transparent border border-slate-200 text-slate-500 dark:border-slate-800 dark:text-slate-400',
+    strong: 'text-slate-600 dark:text-slate-300',
     icon: 'info',
   },
 }
