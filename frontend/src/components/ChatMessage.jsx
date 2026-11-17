@@ -1,5 +1,53 @@
 import { useState } from 'react'
 
+function formatInline(text) {
+  if (!text) return ''
+
+  // Match bold (**...** or __...__), italics (*...* or _..._), and inline code (`...`)
+  const tokenRegex = /(\*\*[^*]+\*\*|__[^_]+__|\*[^*]+\*|_[^_]+_|`[^`]+`)/g
+  const parts = text.split(tokenRegex)
+
+  return parts.map((part, i) => {
+    if (!part) return null
+    if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
+      return (
+        <strong key={i} className="font-semibold text-slate-900">
+          {part.slice(2, -2)}
+        </strong>
+      )
+    }
+    if (part.startsWith('__') && part.endsWith('__') && part.length >= 4) {
+      return (
+        <strong key={i} className="font-semibold text-slate-900">
+          {part.slice(2, -2)}
+        </strong>
+      )
+    }
+    if (part.startsWith('*') && part.endsWith('*') && part.length >= 2) {
+      return (
+        <em key={i} className="italic text-slate-700">
+          {part.slice(1, -1)}
+        </em>
+      )
+    }
+    if (part.startsWith('_') && part.endsWith('_') && part.length >= 2) {
+      return (
+        <em key={i} className="italic text-slate-700">
+          {part.slice(1, -1)}
+        </em>
+      )
+    }
+    if (part.startsWith('`') && part.endsWith('`') && part.length >= 2) {
+      return (
+        <code key={i} className="px-1.5 py-0.5 rounded bg-slate-100 text-teal-800 font-mono text-[0.85em]">
+          {part.slice(1, -1)}
+        </code>
+      )
+    }
+    return part
+  })
+}
+
 function renderFormattedContent(text) {
   if (!text) return null
 
@@ -38,17 +86,6 @@ function renderFormattedContent(text) {
     }
   }
 
-  const formatInline = (str) => {
-    // Replace **bold**
-    const parts = str.split(/(\*\*[^*]+\*\*)/g)
-    return parts.map((part, i) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={i} className="font-semibold text-slate-900">{part.slice(2, -2)}</strong>
-      }
-      return part
-    })
-  }
-
   for (let i = 0; i < lines.length; i++) {
     const rawLine = lines[i]
     const trimmed = rawLine.trim()
@@ -58,24 +95,26 @@ function renderFormattedContent(text) {
       continue
     }
 
-    // Heading ###
-    if (trimmed.startsWith('### ')) {
+    // Heading (# or ## or ###)
+    if (trimmed.startsWith('#')) {
       flushList()
+      const headingText = trimmed.replace(/^#+\s*/, '')
       elements.push(
-        <h4 key={`h-${keyIdx++}`} className="text-[16px] sm:text-[17px] font-bold text-slate-900 tracking-tight mt-3 mb-2">
-          {formatInline(trimmed.replace('### ', ''))}
+        <h4 key={`h-${keyIdx++}`} className="text-[15px] sm:text-[16px] font-bold text-slate-900 tracking-tight mt-3 mb-1.5">
+          {formatInline(headingText)}
         </h4>
       )
       continue
     }
 
-    // Unordered list item
-    if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+    // Unordered list item (- or * or •)
+    const isBullet = trimmed.startsWith('- ') || trimmed.startsWith('* ') || trimmed.startsWith('• ')
+    if (isBullet) {
       if (listType !== 'ul') {
         flushList()
         listType = 'ul'
       }
-      listItems.push(trimmed.slice(2))
+      listItems.push(trimmed.replace(/^[-*•]\s+/, ''))
       continue
     }
 

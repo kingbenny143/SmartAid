@@ -60,63 +60,36 @@ const FirstAidCard = ({ guide, onOpen }) => {
   }
 
   return (
-    <article
-      className={
-        'card p-5 sm:p-6 flex flex-col justify-between h-full group transition-all duration-200 hover:-translate-y-1 ' +
-        (isEmergency ? 'border-rose-200/80 hover:border-rose-300' : 'hover:border-teal-200')
-      }
-    >
+    <article className={'fa-card ' + (isEmergency ? 'is-emergency' : '')}>
       <div>
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <div
-            className={
-              'w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ring-1 ' +
-              (isEmergency
-                ? 'bg-rose-50 text-rose-600 ring-rose-100'
-                : 'bg-teal-50 text-teal-700 ring-teal-100/60')
-            }
-          >
+        <div className="fa-card-top">
+          <div className={'fa-card-icon ' + (isEmergency ? 'is-emergency' : '')}>
             {renderIcon()}
           </div>
-          <div className="flex items-center gap-1.5 flex-wrap justify-end">
-            {isEmergency ? (
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
-                Emergency
-              </span>
-            ) : (
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200/60">
-                {guide.category || 'Guide'}
-              </span>
-            )}
-          </div>
+          <span className={'fa-category-badge ' + (isEmergency ? 'is-emergency' : '')}>
+            {isEmergency ? 'Emergency' : guide.category || 'Guide'}
+          </span>
         </div>
 
-        <h3 className="font-bold text-slate-900 text-base sm:text-lg tracking-tight mb-2 group-hover:text-teal-700 transition">
+        <h3 className="fa-card-title">
           {guide.title}
         </h3>
-        <p className="text-[13.5px] sm:text-[14px] text-slate-600 leading-relaxed line-clamp-3">
+        <p className="fa-card-desc">
           {guide.description}
         </p>
       </div>
 
-      <div className="mt-5 pt-3 border-t border-slate-100">
-        <button
-          type="button"
-          onClick={() => onOpen && onOpen(guide)}
-          className={
-            'btn btn-sm btn-block card-action font-semibold text-xs sm:text-sm ' +
-            (isEmergency
-              ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-sm'
-              : 'btn-primary')
-          }
-        >
-          View step-by-step
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={() => onOpen && onOpen(guide)}
+        className={'fa-card-btn ' + (isEmergency ? 'is-emergency' : '')}
+      >
+        <span>View step-by-step</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </button>
     </article>
   )
 }

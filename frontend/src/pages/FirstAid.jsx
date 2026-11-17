@@ -124,15 +124,13 @@ const FirstAid = () => {
 
       {/* Search & Category Filter Controls */}
       <div className="mb-8 space-y-4 min-w-0">
-        <div className="relative max-w-xl">
+        <div className="search-input-wrap">
           <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
-            width="18"
-            height="18"
+            className="search-icon"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
@@ -146,14 +144,14 @@ const FirstAid = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search guides (e.g. burn, cut, sprain, CPR, choking, heat)..."
-            className="form-input w-full rounded-2xl border border-slate-200 bg-white pl-11 pr-10 py-3 text-[14.5px] text-slate-800 placeholder:text-slate-400 shadow-sm focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 transition"
+            className="search-input"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery('')}
               aria-label="Clear search"
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition"
+              className="search-clear-btn"
             >
               ✕
             </button>
@@ -162,7 +160,7 @@ const FirstAid = () => {
 
         {/* Categories Bar */}
         {categories.length > 1 && (
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+          <div className="filter-chips-bar">
             {categories.map((cat) => {
               const active = selectedCategory === cat
               return (
@@ -170,12 +168,7 @@ const FirstAid = () => {
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={
-                    'px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ' +
-                    (active
-                      ? 'bg-teal-600 text-white shadow-xs'
-                      : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50')
-                  }
+                  className={'pill-filter-chip ' + (active ? 'is-active' : '')}
                 >
                   {cat}
                 </button>

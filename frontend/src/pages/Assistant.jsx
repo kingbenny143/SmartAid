@@ -18,10 +18,10 @@ const initialWelcome = {
     "### Welcome to Smart Aid Assistant 👋\n\n" +
     "I am your AI health awareness and preventive guidance companion. I can share evidence-informed educational tips on common symptoms, first-aid procedures, hydration, and healthy habits.\n\n" +
     "**You can ask me things like:**\n" +
-    "- *\"How do I treat a sprained ankle?\"*\n" +
-    "- *\"What temperature is dangerous for a fever?\"*\n" +
-    "- *\"What are signs of heat exhaustion vs heatstroke?\"*\n" +
-    "- *\"How do I perform hands-only CPR?\"*\n\n" +
+    "- **\"How do I treat a sprained ankle?\"**\n" +
+    "- **\"What temperature is dangerous for a fever?\"**\n" +
+    "- **\"What are signs of heat exhaustion vs heatstroke?\"**\n" +
+    "- **\"How do I perform hands-only CPR?\"**\n\n" +
     "What would you like to explore today?",
   disclaimer:
     'Smart Aid provides informational health guidance and first-aid education. It does not provide a medical diagnosis or replace a qualified healthcare professional. Seek professional medical care when appropriate.',
@@ -221,10 +221,10 @@ const Assistant = () => {
                     key={idx}
                     type="button"
                     onClick={() => handlePromptClick(p)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-teal-50 border border-slate-200 hover:border-teal-200 text-xs font-semibold text-slate-700 hover:text-teal-800 whitespace-nowrap transition active:scale-95 shadow-2xs"
+                    className="chat-suggested-pill"
                   >
                     <span>{p}</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <line x1="5" y1="12" x2="19" y2="12" />
                       <polyline points="12 5 19 12 12 19" />
                     </svg>
@@ -246,9 +246,9 @@ const Assistant = () => {
                     key={p.label}
                     type="button"
                     onClick={() => handlePromptClick(p.label)}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-200 text-xs font-semibold text-slate-700 hover:text-teal-800 transition active:scale-[0.98]"
+                    className="chat-pill-btn"
                   >
-                    <span aria-hidden="true" className="shrink-0 text-sm">{p.icon}</span>
+                    <span aria-hidden="true" className="shrink-0 text-base">{p.icon}</span>
                     <span className="truncate">{p.label}</span>
                   </button>
                 ))}
