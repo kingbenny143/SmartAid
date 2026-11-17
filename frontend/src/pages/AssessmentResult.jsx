@@ -102,7 +102,7 @@ const AssessmentResult = () => {
             <line x1="12" y1="9" x2="12" y2="13" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg>
-          <div className="min-w-0 break-words">
+          <div className="flex-1 min-w-0 break-words">
             <strong className="font-bold">Medical Disclaimer:&nbsp;</strong>
             {result.disclaimer}
           </div>

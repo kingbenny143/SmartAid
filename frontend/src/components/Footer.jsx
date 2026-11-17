@@ -47,10 +47,10 @@ const Footer = () => {
             <div className="flex items-center gap-2 flex-wrap pt-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-teal-50 dark:bg-emerald-950/80 text-teal-800 dark:text-emerald-300 border border-teal-200 dark:border-emerald-800/50">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-                Prototype
+                Health Intelligence
               </span>
               <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-slate-200/70 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border border-slate-300/80 dark:border-slate-700/60">
-                Eureka! 2026
+                Educational AI
               </span>
             </div>
           </div>

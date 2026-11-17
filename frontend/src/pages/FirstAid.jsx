@@ -138,7 +138,7 @@ const FirstAid = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search guides (e.g. burn, cut, sprain, CPR, choking, heat)..."
-            className="search-input"
+            className="search-input !pl-12 !pr-10"
           />
           {query && (
             <button
@@ -154,7 +154,7 @@ const FirstAid = () => {
 
         {/* Categories Bar */}
         {categories.length > 1 && (
-          <div className="filter-chips-bar">
+          <div className="filter-chips-bar flex flex-wrap items-center gap-2">
             {categories.map((cat) => {
               const active = selectedCategory === cat
               return (

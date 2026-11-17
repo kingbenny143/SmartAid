@@ -1,6 +1,6 @@
 # Smart Aid 🩺
 
-AI-assisted health awareness and preventive-support platform built for the **Eureka! 2026** startup competition.
+AI-assisted health awareness and preventive-support platform designed for everyday wellness and educational first aid.
 
 ## ⚠️ Health Disclaimer
 

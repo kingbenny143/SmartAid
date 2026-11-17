@@ -64,7 +64,7 @@ const NumberedList = ({ items, accent = 'teal' }) => {
           <span className={`shrink-0 w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center mt-0.5 ${accents[accent]}`}>
             {i + 1}
           </span>
-          <span className="text-[14.5px] leading-relaxed text-slate-700 dark:text-slate-300">{item}</span>
+          <span className="flex-1 min-w-0 text-[14.5px] leading-relaxed text-slate-700 dark:text-slate-300 break-words">{item}</span>
         </li>
       ))}
     </ul>
@@ -152,7 +152,7 @@ const ResultCard = ({ result }) => {
               {result.red_flags.map((r, i) => (
                 <li key={i} className="flex items-start gap-3 min-w-0">
                   <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-rose-500" aria-hidden="true" />
-                  <span className="text-[14.5px] leading-relaxed text-rose-900 dark:text-rose-200 font-medium break-words">
+                  <span className="flex-1 min-w-0 text-[14.5px] leading-relaxed text-rose-900 dark:text-rose-200 font-medium break-words">
                     {r}
                   </span>
                 </li>

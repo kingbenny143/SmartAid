@@ -37,7 +37,7 @@ const Disclaimer = ({ tone = 'default', className = '' }) => {
     <div
       role="note"
       className={
-        'rounded-xl border px-3 sm:px-4 py-2.5 sm:py-3 text-[11.5px] sm:text-[12px] leading-relaxed flex items-start gap-2 sm:gap-2.5 min-w-0 break-words ' +
+        'rounded-xl border px-4 sm:px-5 py-3 sm:py-3.5 text-[12px] sm:text-[12.5px] leading-relaxed flex items-start gap-3 min-w-0 break-words ' +
         t.wrap +
         ' ' +
         className

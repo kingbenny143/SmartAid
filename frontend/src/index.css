@@ -3004,10 +3004,11 @@ kbd {
   z-index: 2;
 }
 
-.search-input-wrap .search-input {
+.search-input-wrap .search-input,
+.search-input {
   width: 100%;
-  padding-left: 44px !important;
-  padding-right: 38px !important;
+  padding-left: 46px !important;
+  padding-right: 40px !important;
   padding-top: 11px !important;
   padding-bottom: 11px !important;
   border-radius: 14px;
@@ -3020,7 +3021,8 @@ kbd {
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
-.search-input-wrap .search-input:focus {
+.search-input-wrap .search-input:focus,
+.search-input:focus {
   border-color: #0d9488;
   box-shadow: 0 0 0 3.5px rgba(13, 148, 136, 0.15);
 }
@@ -3262,14 +3264,20 @@ kbd {
 }
 
 .symptom-card-cat {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: #0d9488;
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  border-radius: 9999px;
+  padding: 2px 8px;
   margin-top: 3px;
   margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .symptom-card-desc {
@@ -3542,6 +3550,14 @@ kbd {
   list-style-type: disc !important;
 }
 
+.chat-bubble-assistant ul.chat-prompt-list,
+.chat-bubble-assistant ul:has(.chat-prompt-pill) {
+  padding-left: 0 !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  margin: 12px 0 !important;
+}
+
 .chat-bubble-assistant ol {
   margin: 10px 0 14px !important;
   padding-left: 22px !important;
@@ -3554,13 +3570,21 @@ kbd {
   color: #334155 !important;
 }
 
+.chat-bubble-assistant li.chat-prompt-item,
+.chat-bubble-assistant li:has(.chat-prompt-pill) {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding-left: 0 !important;
+  margin: 8px 0 !important;
+}
+
 /* Interactive prompt pills in welcome message */
 .chat-prompt-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 12px;
+  gap: 10px;
+  padding: 9px 16px;
+  border-radius: 14px;
   background: #f0fdfa;
   border: 1.5px solid #ccfbf1;
   color: #0f766e;
@@ -3570,6 +3594,8 @@ kbd {
   transition: all 0.16s ease;
   box-shadow: 0 1px 2px rgba(13, 148, 136, 0.06);
   text-align: left;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .chat-prompt-pill:hover {
@@ -4250,17 +4276,20 @@ html.dark .severity-card.is-selected.severity-card--severe {
 }
 
 /* Search bar & filter chips in Dark Mode */
-html.dark .search-input-wrap .search-input {
+html.dark .search-input-wrap .search-input,
+html.dark .search-input {
   background: #0f172a !important;
   border-color: #1e293b !important;
   color: #f8fafc !important;
 }
 
-html.dark .search-input-wrap .search-input::placeholder {
+html.dark .search-input-wrap .search-input::placeholder,
+html.dark .search-input::placeholder {
   color: #64748b !important;
 }
 
-html.dark .search-input-wrap .search-input:focus {
+html.dark .search-input-wrap .search-input:focus,
+html.dark .search-input:focus {
   border-color: #14b8a6 !important;
   box-shadow: 0 0 0 3.5px rgba(20, 184, 166, 0.22) !important;
 }

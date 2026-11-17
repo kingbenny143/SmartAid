@@ -60,8 +60,16 @@ function renderFormattedContent(text, onPromptClick) {
   const flushList = () => {
     if (listItems.length > 0) {
       if (listType === 'ul') {
+        const hasPromptPills = listItems.some((item) => {
+          const cleanText = item.replace(/^\*\*|\*\*$/g, '').trim()
+          return /^["“](.+)["”]$/.test(cleanText)
+        })
+
         elements.push(
-          <ul key={`ul-${keyIdx++}`} className="my-2.5 space-y-2 pl-2 list-disc marker:text-teal-600">
+          <ul
+            key={`ul-${keyIdx++}`}
+            className={`my-3 space-y-2.5 ${hasPromptPills ? 'chat-prompt-list !list-none !pl-0' : 'pl-5 list-disc marker:text-teal-600'}`}
+          >
             {listItems.map((item, idx) => {
               // Check if item looks like a quoted prompt: e.g. "How do I treat a sprained ankle?" or **"..."**
               const cleanText = item.replace(/^\*\*|\*\*$/g, '').trim()
@@ -69,14 +77,14 @@ function renderFormattedContent(text, onPromptClick) {
               if (promptMatch && onPromptClick) {
                 const promptQuery = promptMatch[1]
                 return (
-                  <li key={idx} className="list-none my-2">
+                  <li key={idx} className="chat-prompt-item !list-none my-2 !pl-0">
                     <button
                       type="button"
                       onClick={() => onPromptClick(promptQuery)}
-                      className="chat-prompt-pill"
+                      className="chat-prompt-pill w-full sm:w-auto text-left"
                     >
-                      <span className="text-teal-600 text-xs">💬</span>
-                      <span className="font-semibold text-teal-900 dark:text-teal-100">{promptQuery}</span>
+                      <span className="text-teal-600 text-xs shrink-0">💬</span>
+                      <span className="font-semibold text-teal-900 dark:text-teal-100 flex-1 min-w-0 break-words">{promptQuery}</span>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="chat-prompt-pill-arrow shrink-0 text-teal-600" aria-hidden="true">
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
@@ -86,7 +94,7 @@ function renderFormattedContent(text, onPromptClick) {
                 )
               }
               return (
-                <li key={idx} className="leading-relaxed text-slate-700 dark:text-slate-300 pl-1">
+                <li key={idx} className="leading-relaxed text-slate-700 dark:text-slate-300 pl-1 break-words">
                   {formatInline(item)}
                 </li>
               )
@@ -95,9 +103,9 @@ function renderFormattedContent(text, onPromptClick) {
         )
       } else if (listType === 'ol') {
         elements.push(
-          <ol key={`ol-${keyIdx++}`} className="my-2.5 space-y-2 pl-5 list-decimal marker:text-teal-700 font-medium">
+          <ol key={`ol-${keyIdx++}`} className="my-3 space-y-2.5 pl-6 list-decimal marker:text-teal-700 font-medium">
             {listItems.map((item, idx) => (
-              <li key={idx} className="leading-relaxed text-slate-700 dark:text-slate-300 font-normal pl-1">
+              <li key={idx} className="leading-relaxed text-slate-700 dark:text-slate-300 font-normal pl-1 break-words">
                 {formatInline(item)}
               </li>
             ))}

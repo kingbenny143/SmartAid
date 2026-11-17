@@ -203,7 +203,7 @@ const SymptomChecker = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search symptoms (e.g. fever, cough, joint)..."
-                className="search-input"
+                className="search-input !pl-12 !pr-10"
               />
               {searchQuery && (
                 <button
@@ -218,7 +218,7 @@ const SymptomChecker = () => {
             </div>
 
             {/* Category Filter Chips */}
-            <div className="filter-chips-bar">
+            <div className="filter-chips-bar flex flex-wrap items-center gap-2">
               {categories.map((cat) => {
                 const active = selectedCategory === cat
                 return (
