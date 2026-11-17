@@ -24,15 +24,22 @@ const NavIcon = ({ open }) => (
 )
 
 const BrandLogo = () => (
-  <div className="flex items-center gap-2.5 shrink-0">
-    <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center font-bold shadow-sm" style={{ boxShadow: '0 1px 2px rgba(15,118,110,0.18), 0 4px 10px -2px rgba(13,148,136,0.35)' }}>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <div className="flex items-center gap-3 shrink-0">
+    <div
+      className="w-10 h-10 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center font-bold shadow-md shadow-teal-700/20 ring-4 ring-teal-50"
+    >
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 5v14M5 12h14" />
       </svg>
-    </span>
-    <span className="font-bold tracking-tight text-lg sm:text-xl text-slate-900">
-      SMART <span className="text-teal-600">AID</span>
-    </span>
+    </div>
+    <div className="flex flex-col">
+      <span className="font-extrabold tracking-tight text-lg sm:text-xl text-slate-900 leading-none">
+        SMART <span className="text-teal-600">AID</span>
+      </span>
+      <span className="text-[10px] font-bold text-slate-400 tracking-wider uppercase mt-1">
+        Health Awareness
+      </span>
+    </div>
   </div>
 )
 
@@ -50,21 +57,18 @@ const Navbar = () => {
     <header className="navbar-shell">
       <div className="site-container">
         <div className="navbar-inner">
-          <Link to="/" className="navbar-brand flex items-center" aria-label="Smart Aid home">
+          <Link to="/" className="navbar-brand" aria-label="Smart Aid home">
             <BrandLogo />
           </Link>
 
-          <nav className="navbar-links hidden md:flex items-center" aria-label="Primary">
+          <nav className="navbar-nav-capsule hidden md:flex items-center" aria-label="Primary navigation">
             {LINKS.map((l) => (
               <NavLink
                 key={l.to}
                 to={l.to}
                 end={l.end}
                 className={({ isActive }) =>
-                  'px-4 py-2 rounded-xl text-sm font-semibold transition duration-150 whitespace-nowrap ' +
-                  (isActive
-                    ? 'bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50')
+                  'navbar-nav-link ' + (isActive ? 'is-active' : '')
                 }
               >
                 {l.label}
@@ -72,16 +76,20 @@ const Navbar = () => {
             ))}
           </nav>
 
-          <div className="navbar-cta hidden md:flex">
-            <Link to="/symptom-checker" className="btn btn-primary btn-sm">
-              Check Symptoms
+          <div className="hidden md:flex items-center">
+            <Link to="/symptom-checker" className="navbar-cta-btn">
+              <span>Check Symptoms</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
             </Link>
           </div>
 
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden justify-self-end inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 transition bg-white"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition bg-white"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Toggle navigation"
@@ -96,31 +104,38 @@ const Navbar = () => {
           style={{ maxHeight: open ? '520px' : '0px', opacity: open ? 1 : 0 }}
           hidden={!open}
         >
-          <nav className="flex flex-col gap-1 py-3 border-t border-slate-100" aria-label="Mobile">
+          <nav className="flex flex-col gap-1.5 py-4 border-t border-slate-200/80" aria-label="Mobile">
             {LINKS.map((l) => {
-              const active = location.pathname === l.to
+              const active = l.end ? location.pathname === l.to : location.pathname.startsWith(l.to)
               return (
                 <Link
                   key={l.to}
                   to={l.to}
                   onClick={() => setOpen(false)}
                   className={
-                    'px-4 py-3 rounded-xl text-sm font-semibold transition ' +
+                    'px-4 py-3 rounded-2xl text-[14.5px] font-bold transition flex items-center justify-between ' +
                     (active
-                      ? 'bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100'
+                      ? 'bg-teal-50 text-teal-800 border border-teal-200/80 shadow-2xs'
                       : 'text-slate-700 hover:bg-slate-50')
                   }
                 >
-                  {l.label}
+                  <span>{l.label}</span>
+                  {active && (
+                    <span className="w-2 h-2 rounded-full bg-teal-600" aria-hidden="true" />
+                  )}
                 </Link>
               )
             })}
             <Link
               to="/symptom-checker"
               onClick={() => setOpen(false)}
-              className="mt-2 btn btn-primary btn-block"
+              className="mt-2 navbar-cta-btn justify-center text-center py-3 rounded-2xl"
             >
-              Check Symptoms
+              <span>Check Symptoms</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
             </Link>
           </nav>
         </div>
