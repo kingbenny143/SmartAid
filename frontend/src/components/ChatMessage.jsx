@@ -199,27 +199,27 @@ const ChatMessage = ({ role, content, disclaimer, riskLevel, onPromptClick }) =>
 
   return (
     <div className="flex gap-2.5 sm:gap-3 justify-start items-start w-full min-w-0">
-      <div
-        className={
-          'shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-xs font-bold shadow-xs ring-2 ring-white mt-0.5 ' +
-          (isEmergency ? 'bg-gradient-to-br from-rose-500 to-rose-700 text-white' : 'bg-gradient-to-br from-teal-500 to-teal-700 text-white')
-        }
-        style={{ boxShadow: isEmergency ? '0 2px 8px rgba(225,29,72,0.3)' : '0 2px 8px rgba(13,148,136,0.25)' }}
-        aria-hidden="true"
-      >
-        {isEmergency ? (
+      {isEmergency ? (
+        <div
+          className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-xs font-bold shadow-xs ring-2 ring-white mt-0.5 bg-gradient-to-br from-rose-500 to-rose-700 text-white"
+          style={{ boxShadow: '0 2px 8px rgba(225,29,72,0.3)' }}
+          aria-hidden="true"
+        >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
             <line x1="12" y1="9" x2="12" y2="13" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg>
-        ) : (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
-            <path d="M15.5 7h-1a1 1 0 0 0-1 1v.5a1 1 0 0 1-1 1 1 1 0 0 1 1 1V11a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-.5a1 1 0 0 1 1-1 1 1 0 0 1-1-1V8a1 1 0 0 0-1-1Z" />
-          </svg>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div
+          className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden bg-black flex items-center justify-center shadow-xs ring-2 ring-emerald-500/40 mt-0.5"
+          style={{ boxShadow: '0 2px 8px rgba(13,148,136,0.25)' }}
+          aria-hidden="true"
+        >
+          <img src="/logo.jpg" alt="Smart Aid AI" className="w-full h-full object-cover scale-105" />
+        </div>
+      )}
 
       <div
         className={

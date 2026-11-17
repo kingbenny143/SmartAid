@@ -143,15 +143,11 @@ const Assistant = () => {
             <div className="flex items-center gap-3 min-w-0">
               <div className="relative shrink-0">
                 <div
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center shadow-sm ring-2 ring-teal-50"
-                  style={{ boxShadow: '0 1px 2px rgba(15,118,110,0.18), 0 3px 8px -2px rgba(13,148,136,0.30)' }}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-sm ring-2 ring-emerald-500/40"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
-                    <path d="M15.5 7h-1a1 1 0 0 0-1 1v.5a1 1 0 0 1-1 1 1 1 0 0 1 1 1V11a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-.5a1 1 0 0 1 1-1 1 1 0 0 1-1-1V8a1 1 0 0 0-1-1Z" />
-                  </svg>
+                  <img src="/logo.jpg" alt="Smart Aid AI" className="w-full h-full object-cover scale-105" />
                 </div>
-                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" aria-hidden="true" />
+                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="text-[14px] sm:text-[14.5px] font-bold text-slate-900 tracking-tight truncate flex items-center gap-2">
@@ -193,16 +189,14 @@ const Assistant = () => {
 
             {thinking && (
               <div className="flex gap-2.5 sm:gap-3 justify-start items-center w-full min-w-0 pt-2">
-                <div className="shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center shadow-xs ring-2 ring-white">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
-                  </svg>
+                <div className="shrink-0 w-8 h-8 rounded-full overflow-hidden bg-black flex items-center justify-center shadow-xs ring-2 ring-emerald-500/40">
+                  <img src="/logo.jpg" alt="Smart Aid AI" className="w-full h-full object-cover scale-105" />
                 </div>
-                <div className="bg-white border border-slate-200/80 shadow-xs rounded-2xl rounded-tl-sm px-4 py-2.5 flex items-center gap-2 text-slate-500 text-sm">
+                <div className="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-xs rounded-2xl rounded-tl-sm px-4 py-2.5 flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
                   <span className="w-2 h-2 rounded-full bg-teal-500 animate-bounce" style={{ animationDelay: '-0.32s' }} />
                   <span className="w-2 h-2 rounded-full bg-teal-500 animate-bounce" style={{ animationDelay: '-0.16s' }} />
                   <span className="w-2 h-2 rounded-full bg-teal-500 animate-bounce" />
-                  <span className="text-xs text-slate-400 ml-1">Analyzing health query...</span>
+                  <span className="text-xs text-slate-400 dark:text-slate-400 ml-1">Analyzing health query...</span>
                 </div>
               </div>
             )}
