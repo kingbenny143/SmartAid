@@ -11,7 +11,7 @@ Smart Aid is **NOT** a medical diagnosis system. It provides:
 - Preventive wellness habits (hydration, nutrition, sleep, cardiovascular support)
 - General health guidance and emergency response information
 
-This prototype does **not** replace a qualified healthcare professional. Always seek professional care when appropriate. In medical emergencies, call your local emergency number (such as **911** or **112**) immediately.
+Smart Aid does **not** replace a qualified healthcare professional. Always seek professional care when appropriate. In medical emergencies, call your local emergency number (such as **911** or **112**) immediately.
 
 ---
 

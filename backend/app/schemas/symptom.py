@@ -62,5 +62,5 @@ class SymptomAssessmentResponse(BaseModel):
         description="List of symptoms recognized and analyzed."
     )
     disclaimer: str = Field(
-        description="Mandatory health disclaimer stating the prototype does not provide medical diagnosis."
+        description="Mandatory health disclaimer stating that Smart Aid does not provide medical diagnosis."
     )

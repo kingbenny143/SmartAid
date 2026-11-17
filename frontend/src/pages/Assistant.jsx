@@ -122,13 +122,13 @@ const Assistant = () => {
                 ONLINE
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Smart Aid Assistant</h1>
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Smart Aid Assistant</h1>
           </div>
           {hasUserMessage && (
             <button
               type="button"
               onClick={handleClear}
-              className="self-start sm:self-auto btn btn-secondary btn-sm text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-xl"
+              className="self-start sm:self-auto btn btn-secondary btn-sm text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-xl"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="1 4 1 10 7 10" />
@@ -141,9 +141,9 @@ const Assistant = () => {
       </header>
 
       <div className="chat-page fade-in min-w-0">
-        <div className="chat-container border border-slate-200/90 shadow-xl bg-white flex flex-col rounded-3xl h-[calc(100vh-175px)] min-h-[520px] max-h-[820px] overflow-hidden">
+        <div className="chat-container border border-slate-200/90 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 flex flex-col rounded-3xl h-[calc(100vh-175px)] min-h-[520px] max-h-[820px] overflow-hidden">
           {/* Shell Header */}
-          <div className="chat-shell-header px-4 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-slate-50 via-white to-teal-50/20 border-b border-slate-100 flex items-center justify-between gap-3 shrink-0">
+          <div className="chat-shell-header px-4 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-slate-50 via-white to-teal-50/20 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 shrink-0">
             <div className="flex items-center gap-3 min-w-0">
               <div className="relative shrink-0">
                 <div
@@ -218,7 +218,13 @@ const Assistant = () => {
                 </svg>
                 <span className="hidden xs:inline">Suggested</span>
               </div>
-              <div className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1 pr-6 flex-1 min-w-0">
+              <div
+                className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1 pr-8 flex-1 min-w-0"
+                style={{
+                  maskImage: 'linear-gradient(to right, black calc(100% - 28px), transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, black calc(100% - 28px), transparent 100%)',
+                }}
+              >
                 {activeSuggestedPrompts.map((p, idx) => (
                   <button
                     key={idx}
@@ -233,7 +239,7 @@ const Assistant = () => {
                     </svg>
                   </button>
                 ))}
-                <div className="w-6 shrink-0" aria-hidden="true" />
+                <div className="w-8 shrink-0" aria-hidden="true" />
               </div>
             </div>
           )}
@@ -244,7 +250,13 @@ const Assistant = () => {
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-400 shrink-0 select-none">
                 Topics:
               </span>
-              <div className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1 pr-6 flex-1 min-w-0">
+              <div
+                className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1 pr-8 flex-1 min-w-0"
+                style={{
+                  maskImage: 'linear-gradient(to right, black calc(100% - 28px), transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, black calc(100% - 28px), transparent 100%)',
+                }}
+              >
                 {STARTER_PROMPTS.map((p) => (
                   <button
                     key={p.label}
@@ -256,7 +268,7 @@ const Assistant = () => {
                     <span>{p.label}</span>
                   </button>
                 ))}
-                <div className="w-6 shrink-0" aria-hidden="true" />
+                <div className="w-8 shrink-0" aria-hidden="true" />
               </div>
             </div>
           )}

@@ -21,17 +21,17 @@ const AssessmentResult = () => {
     return (
       <div className="page-wrap px-4 py-12">
         <div className="max-w-lg mx-auto text-center py-12 fade-in">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-slate-100 text-slate-400 flex items-center justify-center border border-slate-200">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-slate-100 dark:bg-slate-800 text-slate-400 flex items-center justify-center border border-slate-200 dark:border-slate-700">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M9 12l2 2 4-4" />
               <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.57.94 6.19 2.48" />
             </svg>
           </div>
           <span className="page-eyebrow !mb-4">No Data</span>
-          <h1 className="text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
             No Assessment Available
           </h1>
-          <p className="text-slate-600 mb-8 leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
             Please run the Symptom Checker first to generate an informational health assessment.
           </p>
           <Link to="/symptom-checker" className="btn btn-primary btn-lg">
@@ -53,10 +53,10 @@ const AssessmentResult = () => {
       <header className="mb-8 flex flex-col sm:flex-row items-start justify-between gap-4 fade-in min-w-0">
         <div className="max-w-2xl min-w-0">
           <span className="page-eyebrow">Triage &amp; Guidance</span>
-          <h1 className="page-title text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight !mb-2">
+          <h1 className="page-title text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight !mb-2">
             Assessment Result
           </h1>
-          <p className="text-[15px] leading-relaxed text-slate-600 break-words">
+          <p className="text-[15px] leading-relaxed text-slate-600 dark:text-slate-300 break-words">
             Evidence-informed health guidance based on your selected symptoms, duration, and severity.
           </p>
         </div>

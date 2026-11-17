@@ -153,14 +153,14 @@ const SymptomChecker = () => {
             />
             {selectedIds.length > 0 && (
               <div className="flex items-center gap-2 self-start sm:self-auto">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200 text-xs font-bold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 dark:bg-emerald-950/70 text-teal-800 dark:text-emerald-300 border border-teal-200 dark:border-emerald-800/60 text-xs font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500 dark:bg-emerald-400" />
                   {selectedIds.length} selected
                 </span>
                 <button
                   type="button"
                   onClick={clearSelection}
-                  className="text-xs text-slate-500 hover:text-rose-600 underline font-medium transition"
+                  className="text-xs text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 underline font-medium transition"
                 >
                   Clear all
                 </button>
@@ -171,9 +171,9 @@ const SymptomChecker = () => {
           {error && (
             <div
               role="alert"
-              className="mb-5 p-4 rounded-2xl border border-rose-200 bg-rose-50 text-rose-800 text-[14px] leading-relaxed flex items-start gap-3 shadow-sm min-w-0 break-words"
+              className="mb-5 p-4 rounded-2xl border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-200 text-[14px] leading-relaxed flex items-start gap-3 shadow-sm min-w-0 break-words"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5 text-rose-600" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5 text-rose-600 dark:text-rose-400" aria-hidden="true">
                 <circle cx="12" cy="12" r="10" />
                 <line x1="12" y1="8" x2="12" y2="12" />
                 <line x1="12" y1="16" x2="12.01" y2="16" />
@@ -249,15 +249,15 @@ const SymptomChecker = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 rounded-2xl border border-dashed border-slate-200 bg-slate-50/50">
-              <p className="text-sm text-slate-500">No symptoms found matching "{searchQuery}".</p>
+            <div className="text-center py-12 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40">
+              <p className="text-sm text-slate-500 dark:text-slate-400">No symptoms found matching "{searchQuery}".</p>
               <button
                 type="button"
                 onClick={() => {
                   setSearchQuery('')
                   setSelectedCategory('All')
                 }}
-                className="mt-2 text-xs font-semibold text-teal-600 hover:underline"
+                className="mt-2 text-xs font-semibold text-teal-600 dark:text-emerald-400 hover:underline"
               >
                 Reset filters
               </button>
@@ -266,13 +266,13 @@ const SymptomChecker = () => {
         </section>
 
         {/* Step 2 — Duration */}
-        <section id="step-duration" className="sc-step min-w-0 mt-12 sm:mt-16 mb-12 sm:mb-16">
+        <section id="step-duration" className="sc-step min-w-0 mt-14 sm:mt-18 mb-14 sm:mb-18 clear-both">
           <StepHeader
             num="02"
             title="Duration"
             subtitle="How long have you been experiencing these symptoms?"
           />
-          <fieldset className="min-w-0 mt-4 sm:mt-5">
+          <fieldset className="min-w-0 mt-5 sm:mt-6">
             <legend className="sr-only">Duration of symptoms</legend>
             <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-flow-row auto-rows-fr items-stretch">
               {DURATION_OPTIONS.map((opt) => {
@@ -304,13 +304,13 @@ const SymptomChecker = () => {
         </section>
 
         {/* Step 3 — Severity */}
-        <section id="step-severity" className="sc-step min-w-0 mt-14 sm:mt-18 mb-12 sm:mb-16">
+        <section id="step-severity" className="sc-step min-w-0 mt-16 sm:mt-20 mb-14 sm:mb-18 clear-both">
           <StepHeader
             num="03"
             title="Perceived Severity"
             subtitle="How much do these symptoms disrupt your everyday function?"
           />
-          <fieldset className="min-w-0 mt-4 sm:mt-5">
+          <fieldset className="min-w-0 mt-5 sm:mt-6">
             <legend className="sr-only">Symptom Severity</legend>
             <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-flow-row auto-rows-fr items-stretch">
               {SEVERITY_OPTIONS.map((opt) => {
@@ -351,12 +351,12 @@ const SymptomChecker = () => {
         </section>
 
         {/* Disclaimer */}
-        <section className="sc-disclaimer min-w-0 mt-10 sm:mt-14 mb-10 sm:mb-12">
+        <section className="sc-disclaimer min-w-0 mt-12 sm:mt-16 mb-12 sm:mb-14 clear-both">
           <Disclaimer tone="amber" />
         </section>
 
         {/* Submit */}
-        <section className="sc-submit min-w-0 flex flex-col items-center justify-center pt-8 sm:pt-10 pb-16 sm:pb-20 gap-4">
+        <section className="sc-submit min-w-0 flex flex-col items-center justify-center mt-10 sm:mt-14 pt-8 sm:pt-10 pb-16 sm:pb-20 gap-4 clear-both">
           <button
             type="submit"
             disabled={!canSubmit}
@@ -373,9 +373,11 @@ const SymptomChecker = () => {
             </svg>
           </button>
           {selectedIds.length === 0 ? (
-            <p className="text-xs text-slate-500 font-medium">Please select at least 1 symptom above to enable analysis</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              Please select at least 1 symptom above to enable analysis
+            </p>
           ) : (
-            <p className="text-xs text-teal-700 font-semibold flex items-center gap-1.5">
+            <p className="text-xs text-teal-700 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12" />
               </svg>

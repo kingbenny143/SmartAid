@@ -2803,7 +2803,8 @@ kbd {
 }
 
 .sc-submit {
-  margin-top: 36px !important;
+  margin-top: 44px !important;
+  clear: both;
 }
 
 /* Symptom checker radio/option cards — premium elevated cards with clear active feedback */

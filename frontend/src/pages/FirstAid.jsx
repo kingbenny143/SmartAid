@@ -20,26 +20,26 @@ const FirstAid = () => {
 
   useEffect(() => {
     let ignore = false
-    ;(async () => {
-      try {
-        const res = await getFirstAidGuides()
-        if (ignore) return
-        const loadedTopics = res?.topics || []
-        setTopics(loadedTopics)
-        setDisclaimer(res?.disclaimer || '')
+      ; (async () => {
+        try {
+          const res = await getFirstAidGuides()
+          if (ignore) return
+          const loadedTopics = res?.topics || []
+          setTopics(loadedTopics)
+          setDisclaimer(res?.disclaimer || '')
 
-        const uniqueCats = ['All', ...Array.from(new Set(loadedTopics.map((t) => t.category || 'General')))]
-        setCategories(uniqueCats)
-      } catch (e) {
-        if (ignore) return
-        console.error('First aid load error:', e)
-        setError(
-          "Smart Aid couldn't connect to the health guidance service. Please verify that the backend is running and try again."
-        )
-      } finally {
-        if (!ignore) setLoading(false)
-      }
-    })()
+          const uniqueCats = ['All', ...Array.from(new Set(loadedTopics.map((t) => t.category || 'General')))]
+          setCategories(uniqueCats)
+        } catch (e) {
+          if (ignore) return
+          console.error('First aid load error:', e)
+          setError(
+            "Smart Aid couldn't connect to the health guidance service. Please verify that the backend is running and try again."
+          )
+        } finally {
+          if (!ignore) setLoading(false)
+        }
+      })()
     return () => {
       ignore = true
     }
@@ -181,7 +181,7 @@ const FirstAid = () => {
       {!loading && error && (
         <div
           role="alert"
-          className="p-5 rounded-2xl border border-rose-200 bg-rose-50 text-rose-800 text-[14.5px] leading-relaxed flex items-start gap-3 shadow-sm min-w-0"
+          className="p-5 rounded-2xl border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-200 text-[14.5px] leading-relaxed flex items-start gap-3 shadow-sm min-w-0"
         >
           <svg
             width="18"
@@ -192,7 +192,7 @@ const FirstAid = () => {
             strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="shrink-0 mt-0.5 text-rose-600"
+            className="shrink-0 mt-0.5 text-rose-600 dark:text-rose-400"
             aria-hidden="true"
           >
             <circle cx="12" cy="12" r="10" />
@@ -212,9 +212,9 @@ const FirstAid = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 sm:py-20 rounded-3xl border border-dashed border-slate-200 bg-slate-50/50 min-w-0 mt-2">
-              <p className="text-slate-600 text-[15px] px-4">
-                No guides match <span className="font-semibold text-slate-800">"{query}"</span> in {selectedCategory}.
+            <div className="text-center py-16 sm:py-20 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 min-w-0 mt-2">
+              <p className="text-slate-600 dark:text-slate-400 text-[15px] px-4">
+                No guides match <span className="font-semibold text-slate-800 dark:text-slate-200">"{query}"</span> in {selectedCategory}.
               </p>
               <button
                 type="button"
@@ -222,7 +222,7 @@ const FirstAid = () => {
                   setQuery('')
                   setSelectedCategory('All')
                 }}
-                className="mt-3 text-[13.5px] font-semibold text-teal-700 hover:text-teal-800 px-4 py-1.5 rounded-lg hover:bg-teal-50 transition"
+                className="mt-3 text-[13.5px] font-semibold text-teal-700 dark:text-emerald-400 hover:text-teal-800 dark:hover:text-emerald-300 px-4 py-1.5 rounded-lg hover:bg-teal-50 dark:hover:bg-emerald-950/50 transition"
               >
                 Reset filters
               </button>
